@@ -17,7 +17,8 @@ module.exports = {
 		'no-tabs': 'off',
 		'space-before-function-paren': 'off',
 		'no-trailing-spaces': 'off',
-		'vue/require-explicit-emits': 'error'
+		'vue/require-explicit-emits': 'error',
+		'vue/multi-word-component-names': 'off'
 	}
 
 }
