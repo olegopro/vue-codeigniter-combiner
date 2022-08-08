@@ -1,13 +1,13 @@
 <template>
 	<div class="container">
 		<h1>Help view</h1>
-		<question-item
+
+		<QuestionItem
 			v-for="question in questions"
 			:key="question.title"
 			:question="question"
-		>
-
-		</question-item>
+		/>
+		
 	</div>
 </template>
 

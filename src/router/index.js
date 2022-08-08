@@ -1,12 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Signin from '../views/Signin'
 import Signup from '../views/Signup'
-import Dashboard from '../views/Dashboard'
+// import Dashboard from '../views/Dashboard'
 import MainLayout from '../layout/MainLayout'
 import store from '../store'
 import Tasks from '../views/Tasks'
 import TaskSingle from '../components/tasks/TaskSingle'
 import Help from '../views/Help'
+import Dashboard from '../views/Dashboard'
 
 const router = createRouter({
 	history: createWebHistory(),
@@ -24,7 +25,8 @@ const router = createRouter({
 			name: 'Dashboard',
 			component: Dashboard,
 			meta: {
-				auth: true
+				auth: true,
+				layout: 'dashboard'
 			}
 		},
 		{
@@ -32,7 +34,8 @@ const router = createRouter({
 			name: 'Tasks',
 			component: Tasks,
 			meta: {
-				auth: true
+				auth: true,
+				layout: 'tasks'
 			}
 		},
 		{
@@ -40,7 +43,8 @@ const router = createRouter({
 			name: 'TaskSingle',
 			component: TaskSingle,
 			meta: {
-				auth: true
+				auth: true,
+				layout: 'tasks'
 			}
 		},
 		{
@@ -48,16 +52,23 @@ const router = createRouter({
 			name: 'Help',
 			component: Help,
 			meta: {
-				auth: true
+				auth: true,
+				layout: 'main'
 			}
 		},
 		{
 			path: '/login',
-			component: Signin
+			component: Signin,
+			meta: {
+				layout: 'auth'
+			}
 		},
 		{
 			path: '/register',
-			component: Signup
+			component: Signup,
+			meta: {
+				layout: 'auth'
+			}
 		}
 	],
 

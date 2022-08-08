@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-6">
-				<h1>Заявки</h1>
+				<h1 class="mt-3">Заявки</h1>
 			</div>
 			<div class="col-6">
 				<button type="button" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">

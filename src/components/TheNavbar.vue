@@ -1,11 +1,36 @@
 <template>
-	<nav class="container-fluid">
-		<header class="d-flex flex-wrap justify-content-center py-3  mb-4 text-dark">
+	<nav class="container-fluid p-0 sticky-top">
+		<header class="p-3 text-bg-dark">
+			<div class="container w-100">
+				<div class="d-flex align-items-center justify-content-between">
+
+					<span class="fs-5">Combiner - layout - {{ layout }}</span>
+
+					<!--<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+						<li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
+					</ul>-->
+
+					<form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 ms-auto" role="search">
+						<input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Поиск..." aria-label="Search">
+					</form>
+
+					<div class="text-end">
+						<!--	<button type="button" class="btn btn-outline-light me-2">Login</button>-->
+						<button type="button" class="btn btn-outline-light me-2" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
+							Уведомления
+						</button>
+						<button type="button" class="btn btn-warning" @click="logout">Выход</button>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<!--<header class="d-flex flex-wrap justify-content-center py-3 text-dark">
 			<router-link
 				class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none"
 				:to="loggedIn ? '/dashboard' : '/'"
 			>
-				<span class="fs-4">Combiner</span>
+				<span class="fs-4">Combiner - layout - {{ layout }}</span>
 			</router-link>
 
 			<ul class="nav nav-pills" v-if="!loggedIn">
@@ -38,7 +63,7 @@
 					</button>
 				</li>
 			</ul>
-		</header>
+		</header>-->
 	</nav>
 </template>
 
@@ -47,6 +72,8 @@
 
 	export default {
 		components: { AppMenuLink },
+
+		props: ['layout'],
 
 		computed: {
 			loggedIn() {

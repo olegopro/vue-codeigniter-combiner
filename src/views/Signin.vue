@@ -1,6 +1,6 @@
 <template>
 	<div class="container">
-		<h1 class="py-3">Вход</h1>
+		<h1>Вход</h1>
 
 		<form @submit.prevent="signin">
 			<div class="mb-3">
@@ -19,7 +19,7 @@
 				:active-class="activeClass"
 			/>
 
-			<button type="submit" class="btn btn-primary">Войти</button>
+			<button type="submit" class="btn btn-primary w-100">Войти</button>
 		</form>
 	</div>
 
@@ -78,6 +78,14 @@
 	}
 </script>
 
-<style scoped>
-
+<style lang="sass" scoped>
+	.container
+		position: absolute
+		top: 46%
+		left: 50%
+		transform: translate(-50%, -50%)
+		width: 500px
+		padding: 30px
+		border-radius: 15px
+		box-shadow: 0 2px 10px 10px hsl(0, 0%, 90%)
 </style>
