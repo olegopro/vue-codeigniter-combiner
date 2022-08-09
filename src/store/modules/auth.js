@@ -20,6 +20,7 @@ export default {
 		logout(state) {
 			state.token = null
 			localStorage.removeItem(TOKEN_KEY)
+			localStorage.removeItem('username')
 			router.push('/')
 		}
 	},

@@ -79,21 +79,21 @@
 					Статистика
 				</router-link>
 			</li>
-			<li>
+			<!--<li>
 				<router-link to="/tasks" class="nav-link text-white">
-					<svg class="bi pe-none me-2" width="16" height="16">
-						<use xlink:href="#speedometer2"></use>
-					</svg>
-					Задачи
-				</router-link>
-			</li>
-			<li>
-				<a href="#" class="nav-link text-white">
 					<svg class="bi pe-none me-2" width="16" height="16">
 						<use xlink:href="#grid"></use>
 					</svg>
-					Products
-				</a>
+					Журнал
+				</router-link>
+			</li>-->
+			<li>
+				<router-link to="/tasks" class="nav-link text-white">
+					<svg class="bi pe-none me-2" width="16" height="16">
+						<use xlink:href="#table"></use>
+					</svg>
+					Задачи
+				</router-link>
 			</li>
 			<li>
 				<router-link to="/help" class="nav-link text-white">
@@ -102,28 +102,21 @@
 					</svg>
 					Помощь
 				</router-link>
-				<!--<a href="#" class="nav-link text-white">
-					<svg class="bi pe-none me-2" width="16" height="16">
-						<use xlink:href="#people-circle"></use>
-					</svg>
-					Помощь
-				</a>-->
 			</li>
 		</ul>
 		<hr>
 		<div class="dropdown">
 			<a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
 				<img src="https://github.com/mdo.png" alt="" class="rounded-circle me-2" width="32" height="32">
-				<strong>Username</strong>
+				<strong>{{ username }}</strong>
 			</a>
 			<ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-				<li><a class="dropdown-item" href="#">New project...</a></li>
-				<li><a class="dropdown-item" href="#">Settings</a></li>
-				<li><a class="dropdown-item" href="#">Profile</a></li>
+				<li><a class="dropdown-item" href="#">Настройки</a></li>
+				<li><a class="dropdown-item" href="#">Профиль</a></li>
 				<li>
 					<hr class="dropdown-divider">
 				</li>
-				<li><a class="dropdown-item" href="#">Sign out</a></li>
+				<li><a class="dropdown-item" href="#">Выход</a></li>
 			</ul>
 		</div>
 	</div>
@@ -131,11 +124,23 @@
 
 <script>
 	export default {
+
+		data() {
+			return {
+				username: ''
+			}
+		},
+
 		computed: {
 			loggedIn() {
 				return this.$store.getters['auth/isAuthenticated']
 			}
+		},
+
+		mounted() {
+			this.username = localStorage.getItem('username')
 		}
+
 	}
 </script>
 

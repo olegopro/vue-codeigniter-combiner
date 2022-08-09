@@ -59,6 +59,8 @@
 						this.message = 'Вы успешно вошли в систему'
 						this.activeClass = 'success'
 
+						this.$store.dispatch('user/username', { username: this.email })
+
 						this.email = ''
 						this.password = ''
 
