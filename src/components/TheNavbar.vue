@@ -5,6 +5,7 @@
 				<div class="d-flex align-items-center justify-content-between" v-if="loggedIn">
 
 					<span class="fs-5">Combiner - layout - {{ layout }}</span>
+					<span class="fs-5 ms-5">Section name - {{ getSectionName }}</span>
 
 					<form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 ms-auto" role="search">
 						<input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Поиск..." aria-label="Search">
@@ -84,6 +85,7 @@
 
 <script>
 	import AppMenuLink from './ui/AppMenuLink'
+	import { mapGetters } from 'vuex'
 
 	export default {
 		components: { AppMenuLink },
@@ -91,6 +93,7 @@
 		props: ['layout'],
 
 		computed: {
+			...mapGetters(['getSectionName']),
 			loggedIn() {
 				return this.$store.getters['auth/isAuthenticated']
 			}

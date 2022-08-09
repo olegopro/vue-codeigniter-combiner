@@ -1,13 +1,14 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Signin from '../views/Signin'
 import Signup from '../views/Signup'
-// import Dashboard from '../views/Dashboard'
 import MainLayout from '../layout/MainLayout'
 import store from '../store'
 import Tasks from '../views/Tasks'
 import TaskSingle from '../components/tasks/TaskSingle'
 import Help from '../views/Help'
 import Dashboard from '../views/Dashboard'
+import UserSettings from '../views/UserSettings'
+import SystemSettings from '../views/SystemSettings'
 
 const router = createRouter({
 	history: createWebHistory(),
@@ -26,7 +27,8 @@ const router = createRouter({
 			component: Dashboard,
 			meta: {
 				auth: true,
-				layout: 'dashboard'
+				layout: 'dashboard',
+				pageName: 'Статистика'
 			}
 		},
 		{
@@ -35,7 +37,8 @@ const router = createRouter({
 			component: Tasks,
 			meta: {
 				auth: true,
-				layout: 'tasks'
+				layout: 'tasks',
+				pageName: 'Панель задач'
 			}
 		},
 		{
@@ -44,7 +47,8 @@ const router = createRouter({
 			component: TaskSingle,
 			meta: {
 				auth: true,
-				layout: 'tasks'
+				layout: 'tasks',
+				pageName: 'Редактирование задачи'
 			}
 		},
 		{
@@ -53,7 +57,28 @@ const router = createRouter({
 			component: Help,
 			meta: {
 				auth: true,
-				layout: 'main'
+				layout: 'main',
+				pageName: 'Помощь'
+			}
+		},
+		{
+			path: '/userconfig',
+			name: 'UserConfig',
+			component: UserSettings,
+			meta: {
+				auth: true,
+				layout: 'main',
+				pageName: 'Настройки пользователя'
+			}
+		},
+		{
+			path: '/systemconfig',
+			name: 'SystemConfig',
+			component: SystemSettings,
+			meta: {
+				auth: true,
+				layout: 'main',
+				pageName: 'Системные настройки'
 			}
 		},
 		{
@@ -85,6 +110,14 @@ router.beforeEach((to, from, next) => {
 		next('/login?message=auth')
 	} else {
 		next()
+	}
+
+	const pageName = to.meta.pageName
+
+	if (pageName) {
+		store.dispatch('sectionName', pageName)
+	} else {
+		store.dispatch('sectionName', 'Без названия')
 	}
 })
 

@@ -1,9 +1,6 @@
 <template>
 	<div class="container">
-		<div class="row mb-5">
-			<h1>Статистика</h1>
-		</div>
-
+		
 		<div class="row mb-5">
 			<h2>Новые пользователи</h2>
 			<Bar

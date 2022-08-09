@@ -69,7 +69,7 @@
 			</svg>
 			<span class="fs-4">The Combiner</span>
 		</a>
-		<hr>
+		<hr class="hr-sidebar">
 		<ul class="nav nav-pills flex-column mb-auto">
 			<li>
 				<router-link to="/dashboard" class="nav-link text-white">
@@ -111,12 +111,22 @@
 				<strong>{{ username }}</strong>
 			</a>
 			<ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-				<li><a class="dropdown-item" href="#">Настройки</a></li>
-				<li><a class="dropdown-item" href="#">Профиль</a></li>
+				<li>
+					<router-link v-slot="{navigate}" custom to="/systemconfig">
+						<button class="dropdown-item" @click="navigate">Настройки</button>
+					</router-link>
+				</li>
+				<li>
+					<router-link v-slot="{navigate}" custom to="/userconfig">
+						<button class="dropdown-item" @click="navigate">Профиль</button>
+					</router-link>
+				</li>
 				<li>
 					<hr class="dropdown-divider">
 				</li>
-				<li><a class="dropdown-item" href="#">Выход</a></li>
+				<li>
+					<button class="dropdown-item" @click="logout">Выход</button>
+				</li>
 			</ul>
 		</div>
 	</div>
@@ -137,6 +147,12 @@
 			}
 		},
 
+		methods: {
+			logout() {
+				this.$store.commit('auth/logout')
+			}
+		},
+
 		mounted() {
 			this.username = localStorage.getItem('username')
 		}
@@ -152,6 +168,6 @@
 	.bi
 		fill: white
 
-	hr
+	.hr-sidebar
 		margin-top: 18px
 </style>
