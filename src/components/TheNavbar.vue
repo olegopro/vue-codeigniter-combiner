@@ -4,7 +4,7 @@
 			<div class="container w-100">
 				<div class="d-flex align-items-center justify-content-between" v-if="loggedIn">
 
-					<span class="fs-5">Combiner - layout - {{ layout }}</span>
+					<span class="fs-5">Layout - {{ layout }}</span>
 					<span class="fs-5 ms-5">Section name - {{ getSectionName }}</span>
 
 					<form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 ms-auto" role="search">

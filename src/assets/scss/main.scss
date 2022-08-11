@@ -47,6 +47,5 @@
 // Utilities
 @import "../../../node_modules/bootstrap/scss/utilities/api";
 
-html {
-  background-color: rgb(33, 37, 41)
-}
+@import "main-overflow";
+

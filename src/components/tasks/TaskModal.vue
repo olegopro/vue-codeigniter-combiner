@@ -70,6 +70,8 @@
 	}
 </script>
 
-<style scoped>
+<style scoped lang="sass">
+	.fade
+		padding-left: 280px
 
 </style>

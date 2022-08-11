@@ -4,15 +4,16 @@
 
 		<TheSidebar />
 
-		<div class="main-app-container" :class="loggedIn ? 'with-sidebar' : ''">
+		<div class="main-app-container with-sidebar">
 
 			<TheNavbar :layout="layout" />
 
-			<Component
-				class="main-container"
-				:is="layout + '-layout'"
-				v-if="layout"
-			/>
+			<perfect-scrollbar v-if="layout" ref="scroll">
+				<Component
+					class="main-container py-5"
+					:is="layout + '-layout'"
+				/>
+			</perfect-scrollbar>
 
 			<RouterView v-else />
 
@@ -21,6 +22,7 @@
 			</teleport>
 
 		</div>
+
 	</main>
 
 	<div v-else>
@@ -63,20 +65,30 @@
 				return this.$store.getters['auth/isAuthenticated']
 			}
 
+		},
+
+		watch: {
+			$route() {
+				if (this.$refs.scroll) {
+					this.$refs.scroll.$el.scrollTop = 0
+				}
+			}
 		}
 	}
 </script>
 
 <style scoped lang="sass">
+
 	.main-app-container
 		display: flex
 		flex-wrap: wrap
 		box-shadow: inset 5px 0 30px 10px rgba(0, 0, 0, .10)
 
-	.main-container
-		padding-top: 64px
-		padding-bottom: 64px
+		&.with-sidebar
+			margin-left: 280px
 
-	.with-sidebar
-		margin-left: 280px
+		.ps
+			height: calc(100vh - 70px)
+			width: 100%
+
 </style>

@@ -1,8 +1,13 @@
 <template>
 	<div class="container">
+		<div class="row mb-5">
+			<div class="col-12">
+				<h1>Настройки профиля</h1>
+			</div>
+		</div>
 		<div class="row">
-			<div class="col">
-				<div class="card card-body col-6 border-0 mx-auto">
+			<div class="col-12">
+				<div class="card card-body border-0 mx-auto">
 					<h2 class="h5 mb-4">Параметры профиля</h2>
 					<form>
 						<div class="mb-3">

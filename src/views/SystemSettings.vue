@@ -1,6 +1,11 @@
 <template>
 
-	<div class="container ">
+	<div class="container">
+		<div class="row mb-5">
+			<div class="col-12">
+				<h1>Системные настройки</h1>
+			</div>
+		</div>
 		<div class="row gx-5 mb-5">
 			<div class=" col-6">
 				<div class="card card-body border-0">
@@ -55,31 +60,35 @@
 
 		</div>
 
-		<div class="card card-body border-0 mb-4">
-			<h2 class="h5 mb-4">Дополнительные настройки</h2>
-			<ul class="list-group list-group-flush">
-				<li class="list-group-item d-flex align-items-center justify-content-between px-0 border-bottom">
-					<div><h3 class="h6 mb-1">Selenium</h3>
-						<p class="small pe-4">Использовать WebDriver Selenium для работы сервера</p></div>
-					<div>
-						<div class="form-check form-switch"><input class="form-check-input" type="checkbox" id="user-notification-1" checked="checked"> <label class="form-check-label" for="user-notification-1"></label></div>
-					</div>
-				</li>
-				<li class="list-group-item d-flex align-items-center justify-content-between px-0 border-bottom">
-					<div><h3 class="h6 mb-1">Phantom js</h3>
-						<p class="small pe-4">Использовать Phantom js для работы сервера</p></div>
-					<div>
-						<div class="form-check form-switch"><input class="form-check-input" type="checkbox" id="user-notification-2"> <label class="form-check-label" for="user-notification-2"></label></div>
-					</div>
-				</li>
-				<li class="list-group-item d-flex align-items-center justify-content-between px-0">
-					<div><h3 class="h6 mb-1">Работа сервера</h3>
-						<p class="small pe-4">Включить или отключить работу CRON</p></div>
-					<div>
-						<div class="form-check form-switch"><input class="form-check-input" type="checkbox" id="user-notification-3" checked="checked"> <label class="form-check-label" for="user-notification-3"></label></div>
-					</div>
-				</li>
-			</ul>
+		<div class="row">
+			<div class="col-12">
+				<div class="card card-body border-0 mb-4">
+					<h2 class="h5 mb-4">Дополнительные настройки</h2>
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item d-flex align-items-center justify-content-between px-0 border-bottom">
+							<div><h3 class="h6 mb-1">Selenium</h3>
+								<p class="small pe-4">Использовать WebDriver Selenium для работы сервера</p></div>
+							<div>
+								<div class="form-check form-switch"><input class="form-check-input" type="checkbox" id="user-notification-1" checked="checked"> <label class="form-check-label" for="user-notification-1"></label></div>
+							</div>
+						</li>
+						<li class="list-group-item d-flex align-items-center justify-content-between px-0 border-bottom">
+							<div><h3 class="h6 mb-1">Phantom js</h3>
+								<p class="small pe-4">Использовать Phantom js для работы сервера</p></div>
+							<div>
+								<div class="form-check form-switch"><input class="form-check-input" type="checkbox" id="user-notification-2"> <label class="form-check-label" for="user-notification-2"></label></div>
+							</div>
+						</li>
+						<li class="list-group-item d-flex align-items-center justify-content-between px-0">
+							<div><h3 class="h6 mb-1">Работа сервера</h3>
+								<p class="small pe-4">Включить или отключить работу CRON</p></div>
+							<div>
+								<div class="form-check form-switch"><input class="form-check-input" type="checkbox" id="user-notification-3" checked="checked"> <label class="form-check-label" for="user-notification-3"></label></div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
 		</div>
 	</div>
 </template>

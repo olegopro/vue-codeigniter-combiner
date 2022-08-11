@@ -1,5 +1,5 @@
 <template>
-	<body class="d-flex vh-100 text-center text-bg-dark">
+	<body class="d-flex text-center text-bg-dark" :class="loggedIn ? 'in-system-body' : ''">
 		<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
 			<main class="my-auto">
 				<div style="margin-top: -70px">
@@ -18,15 +18,29 @@
 </template>
 
 <script>
-	export default {}
+	import { mapGetters } from 'vuex'
+
+	export default {
+		computed: {
+			loggedIn() {
+				return this.$store.getters['auth/isAuthenticated']
+			}
+		}
+	}
 </script>
 
 <style scoped>
 
 	body {
 		margin-top: -70px;
+		height: 100vh;
 		text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
 		box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+	}
+
+	.in-system-body {
+		height: calc(100vh - 70px);
+		margin-top: 0;
 	}
 
 	.cover-container {
