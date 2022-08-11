@@ -1,6 +1,6 @@
 <template>
 	<div class="container">
-		
+
 		<div class="row mb-5">
 			<h2>Новые пользователи</h2>
 			<Bar
@@ -111,4 +111,5 @@
 		box-shadow: 0 2px 10px 10px hsl(0, 0%, 90%)
 		padding: 30px
 		border-radius: 15px
+
 </style>

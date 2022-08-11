@@ -1,45 +1,43 @@
 <template>
-	<div class="container">
-		<h1>Регистрация</h1>
+	<h1>Регистрация</h1>
 
-		<form @submit.prevent="register">
+	<form @submit.prevent="register">
 
-			<div class="mb-3">
-				<label for="firstname" class="form-label">Имя</label>
-				<input type="text" class="form-control" id="firstname" aria-describedby="firstname" v-model="firstname">
-			</div>
+		<div class="mb-3">
+			<label for="firstname" class="form-label">Имя</label>
+			<input type="text" class="form-control" id="firstname" aria-describedby="firstname" v-model="firstname">
+		</div>
 
-			<div class="mb-3">
-				<label for="lastname" class="form-label">Фамилия</label>
-				<input type="text" class="form-control" id="lastname" aria-describedby="lastname" v-model="lastname">
-			</div>
+		<div class="mb-3">
+			<label for="lastname" class="form-label">Фамилия</label>
+			<input type="text" class="form-control" id="lastname" aria-describedby="lastname" v-model="lastname">
+		</div>
 
-			<div class="mb-3">
-				<label for="email" class="form-label">Почта</label>
-				<input type="email" class="form-control" id="email" aria-describedby="emailHelp" v-model="email">
-				<div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-			</div>
+		<div class="mb-3">
+			<label for="email" class="form-label">Почта</label>
+			<input type="email" class="form-control" id="email" aria-describedby="emailHelp" v-model="email">
+			<div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+		</div>
 
-			<div class="mb-3">
-				<label for="password" class="form-label">Пароль</label>
-				<input type="password" class="form-control" id="password" v-model="password">
-			</div>
+		<div class="mb-3">
+			<label for="password" class="form-label">Пароль</label>
+			<input type="password" class="form-control" id="password" v-model="password">
+		</div>
 
-			<div class="mb-3">
-				<label for="password_confirm" class="form-label">Повторите пароль</label>
-				<input type="password" class="form-control" id="password_confirm" v-model="password_confirm">
-			</div>
+		<div class="mb-3">
+			<label for="password_confirm" class="form-label">Повторите пароль</label>
+			<input type="password" class="form-control" id="password_confirm" v-model="password_confirm">
+		</div>
 
-			<AppAlert
-				v-if="message"
-				:message="message"
-				:active-class="activeClass"
-			/>
+		<AppAlert
+			v-if="message"
+			:message="message"
+			:active-class="activeClass"
+		/>
 
-			<button type="submit" class="btn btn-primary w-100">Регистрация</button>
+		<button type="submit" class="btn btn-secondary w-100">Зарегистрироваться</button>
 
-		</form>
-	</div>
+	</form>
 </template>
 
 <script>
@@ -92,15 +90,3 @@
 		}
 	}
 </script>
-
-<style lang="sass" scoped>
-	.container
-		position: absolute
-		top: 50%
-		left: 50%
-		transform: translate(-50%, -50%)
-		width: 500px
-		padding: 30px
-		border-radius: 15px
-		box-shadow: 0 2px 10px 10px hsl(0, 0%, 90%)
-</style>

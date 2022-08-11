@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Signin from '../views/Signin'
 import Signup from '../views/Signup'
-import MainLayout from '../layout/MainLayout'
 import store from '../store'
 import Tasks from '../views/Tasks'
 import TaskSingle from '../components/tasks/TaskSingle'
@@ -9,16 +8,27 @@ import Help from '../views/Help'
 import Dashboard from '../views/Dashboard'
 import UserSettings from '../views/UserSettings'
 import SystemSettings from '../views/SystemSettings'
+import Frontpage from '../views/Frontpage'
 
 const router = createRouter({
 	history: createWebHistory(),
 	routes: [
+		// {
+		// 	path: '/',
+		// 	name: 'MainLayout',
+		// 	component: MainLayout,
+		// 	meta: {
+		// 		auth: false
+		// 	}
+		// },
 		{
 			path: '/',
-			name: 'MainLayout',
-			component: MainLayout,
+			name: 'Frontpage',
+			component: Frontpage,
+
 			meta: {
-				auth: false
+				auth: false,
+				layout: 'frontpage'
 			}
 		},
 		{
@@ -83,6 +93,7 @@ const router = createRouter({
 		},
 		{
 			path: '/login',
+			name: 'login',
 			component: Signin,
 			meta: {
 				layout: 'auth'
@@ -90,6 +101,7 @@ const router = createRouter({
 		},
 		{
 			path: '/register',
+			name: 'register',
 			component: Signup,
 			meta: {
 				layout: 'auth'

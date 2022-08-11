@@ -1,28 +1,25 @@
 <template>
-	<div class="container">
-		<h1>Вход</h1>
+	<h1>Вход</h1>
 
-		<form @submit.prevent="signin">
-			<div class="mb-3">
-				<label for="email" class="form-label">Почта</label>
-				<input type="email" class="form-control" id="email" aria-describedby="email" v-model="email">
+	<form @submit.prevent="signin">
+		<div class="mb-3">
+			<label for="email" class="form-label">Почта</label>
+			<input type="email" class="form-control" id="email" aria-describedby="email" v-model="email">
 
-			</div>
-			<div class="mb-3">
-				<label for="password" class="form-label">Пароль</label>
-				<input type="password" class="form-control" id="password" v-model="password">
-			</div>
+		</div>
+		<div class="mb-3">
+			<label for="password" class="form-label">Пароль</label>
+			<input type="password" class="form-control" id="password" v-model="password">
+		</div>
 
-			<AppAlert
-				v-if="message"
-				:message="message"
-				:active-class="activeClass"
-			/>
+		<AppAlert
+			v-if="message"
+			:message="message"
+			:active-class="activeClass"
+		/>
 
-			<button type="submit" class="btn btn-primary w-100">Войти</button>
-		</form>
-	</div>
-
+		<button type="submit" class="btn btn-warning w-100">Войти</button>
+	</form>
 </template>
 
 <script>
@@ -79,15 +76,3 @@
 
 	}
 </script>
-
-<style lang="sass" scoped>
-	.container
-		position: absolute
-		top: 46%
-		left: 50%
-		transform: translate(-50%, -50%)
-		width: 500px
-		padding: 30px
-		border-radius: 15px
-		box-shadow: 0 2px 10px 10px hsl(0, 0%, 90%)
-</style>
