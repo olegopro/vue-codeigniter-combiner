@@ -51,15 +51,14 @@
 						<router-link
 							custom
 							v-else
-							:to="'/tasks/' + this.$route.params.id"
+							:to="{name: 'TaskSingle', params: { id: this.$route.params.id }}"
 							v-slot="{navigate}"
-
 						>
 							<button class="btn btn-secondary float-end" @click="navigate">
 								Скрыть лог
 							</button>
 						</router-link>
-						
+
 					</div>
 				</div>
 			</div>
