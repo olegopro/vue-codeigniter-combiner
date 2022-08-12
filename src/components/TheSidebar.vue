@@ -80,22 +80,27 @@
 					Статистика
 				</router-link>
 			</li>
-			<!--<li>
-				<router-link to="/tasks" class="nav-link text-white">
-					<svg class="bi pe-none me-2" width="16" height="16">
-						<use xlink:href="#grid"></use>
-					</svg>
-					Журнал
-				</router-link>
-			</li>-->
-			<li>
-				<router-link to="/tasks" class="nav-link text-white">
-					<svg class="bi pe-none me-2" width="16" height="16">
-						<use xlink:href="#table"></use>
-					</svg>
-					Задачи
-				</router-link>
-			</li>
+
+			<router-link to="/tasks" custom v-slot="{ href, navigate, isActive, isExactActive }">
+				<li>
+					<a
+						class="nav-link text-white"
+						:class="{
+							'active-exact': isExactActive,
+							'active': isActive,
+							'active-sub': subIsActive('/tasks/')
+						}"
+						:href="href"
+						@click="navigate"
+					>
+						<svg class="bi pe-none me-2" width="16" height="16">
+							<use xlink:href="#table"></use>
+						</svg>
+						Задачи
+					</a>
+				</li>
+			</router-link>
+
 			<li>
 				<router-link to="/help" class="nav-link text-white">
 					<svg class="bi pe-none me-2" width="16" height="16">
@@ -118,6 +123,7 @@
 					</router-link>
 				</li>
 				<li>
+
 					<router-link v-slot="{navigate}" custom to="/userconfig">
 						<button class="dropdown-item" @click="navigate">Профиль</button>
 					</router-link>
@@ -149,6 +155,14 @@
 		},
 
 		methods: {
+			subIsActive(input) {
+				const paths = Array.isArray(input) ? input : [input]
+				return paths.some(path => {
+					console.log(this.$route.path.indexOf(path))
+					return this.$route.path.indexOf(path) === 0 // current path starts with this path string
+				})
+			},
+
 			logout() {
 				this.$store.commit('auth/logout')
 			}
@@ -162,6 +176,7 @@
 </script>
 
 <style scoped lang="sass">
+
 	.main-sidebar
 		position: fixed
 		width: 280px
@@ -172,4 +187,8 @@
 
 	.hr-sidebar
 		margin-top: 18px
+
+	.active-sub
+		background-color: rgba(13, 110, 253, 0.60) !important
+
 </style>

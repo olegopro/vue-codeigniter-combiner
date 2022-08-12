@@ -45,6 +45,7 @@ const router = createRouter({
 			path: '/tasks',
 			name: 'Tasks',
 			component: Tasks,
+
 			meta: {
 				auth: true,
 				layout: 'tasks',
@@ -55,6 +56,7 @@ const router = createRouter({
 			path: '/tasks/:id',
 			name: 'TaskSingle',
 			component: TaskSingle,
+			props: true,
 			meta: {
 				auth: true,
 				layout: 'tasks',
@@ -109,8 +111,8 @@ const router = createRouter({
 		}
 	],
 
-	linkActiveClass: 'active'
-	// linkExactActiveClass: 'active'
+	linkActiveClass: 'active',
+	linkExactActiveClass: 'active-exact'
 })
 
 router.beforeEach((to, from, next) => {

@@ -1,4 +1,5 @@
 <template>
+
 	<div class="row">
 		<div class="col-12">
 			<table class="table table-striped table-hover">
@@ -17,6 +18,7 @@
 						<td>{{ task.task_fio }}</td>
 						<td>{{ task.task_telephone }}</td>
 						<td>{{ task.task_status }}</td>
+
 						<td>
 							<router-link v-slot="{navigate}" custom :to="{name: 'TaskSingle', params: {id: task.task_id}}">
 								<button class="btn btn-primary" @click="navigate">Открыть</button>
@@ -39,6 +41,8 @@
 	import { mapActions, mapGetters } from 'vuex'
 
 	export default {
+		props: ['id'],
+
 		components: { AppModal },
 
 		mounted() {

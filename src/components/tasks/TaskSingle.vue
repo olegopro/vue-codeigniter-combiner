@@ -3,7 +3,7 @@
 
 		<div class="row mb-5 align-items-center">
 			<div class="col-6">
-				<h1>Задача</h1>
+				<h1>Задача #{{ id }}</h1>
 			</div>
 			<div class="col-6">
 				<router-link to="/tasks" custom v-slot="{navigate}">
@@ -46,6 +46,9 @@
 	import { mapActions } from 'vuex'
 
 	export default {
+
+		props: ['id'],
+
 		data() {
 			return {
 				request: {},

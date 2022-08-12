@@ -43,11 +43,9 @@
 </template>
 
 <script>
-	import AppMenuLink from './ui/AppMenuLink'
 	import { mapGetters } from 'vuex'
 
 	export default {
-		components: { AppMenuLink },
 
 		props: ['layout'],
 
