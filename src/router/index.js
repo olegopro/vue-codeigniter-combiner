@@ -9,6 +9,8 @@ import Dashboard from '../views/Dashboard'
 import UserSettings from '../views/UserSettings'
 import SystemSettings from '../views/SystemSettings'
 import Frontpage from '../views/Frontpage'
+import * as path from 'path'
+import TaskLog from '../components/tasks/TaskLog'
 
 const router = createRouter({
 	history: createWebHistory(),
@@ -45,7 +47,6 @@ const router = createRouter({
 			path: '/tasks',
 			name: 'Tasks',
 			component: Tasks,
-
 			meta: {
 				auth: true,
 				layout: 'tasks',
@@ -57,6 +58,13 @@ const router = createRouter({
 			name: 'TaskSingle',
 			component: TaskSingle,
 			props: true,
+			children: [
+				{
+					path: 'log',
+					name: 'TaskLog',
+					component: TaskLog
+				}
+			],
 			meta: {
 				auth: true,
 				layout: 'tasks',

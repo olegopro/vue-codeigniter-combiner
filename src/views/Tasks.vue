@@ -24,6 +24,8 @@
 	}
 </script>
 
-<style scoped>
-
+<style scoped lang="sass">
+	.container
+		button
+			width: 150px
 </style>

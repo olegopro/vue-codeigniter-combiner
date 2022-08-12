@@ -5,8 +5,8 @@
 				<h1>Настройки профиля</h1>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-12">
+		<div class="row gx-5">
+			<div class="col-6">
 				<div class="card card-body border-0 mx-auto">
 					<h2 class="h5 mb-4">Параметры профиля</h2>
 					<form>
@@ -30,17 +30,30 @@
 							<label for="exampleFormControlInput1" class="form-label">Фамилия</label>
 							<input type="email" class="form-control" id="exampleFormControlInput1">
 						</div>
+
+						<div class="mt-3">
+							<button class="btn btn-secondary float-end" type="submit">Сохранить</button>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<div class="col-6">
+				<div class="card card-body border-0 mx-auto">
+					<h2 class="h5 mb-4">Изменение пароля</h2>
+					<form>
+
 						<div class="mb-3">
 							<label for="exampleFormControlInput1" class="form-label">Пароль</label>
-							<input type="password" class="form-control" id="exampleFormControlInput1" placeholder="пароль">
+							<input type="password" class="form-control" id="exampleFormControlInput1">
 						</div>
 						<div class="mb-3">
-							<label for="exampleFormControlInput1" class="form-label">Пароль</label>
-							<input type="password" class="form-control" id="exampleFormControlInput1" placeholder="повторите пароль">
+							<label for="exampleFormControlInput1" class="form-label">Повторите пароль</label>
+							<input type="password" class="form-control" id="exampleFormControlInput1">
 						</div>
 
 						<div class="mt-3">
-							<button class="btn btn-secondary " type="submit">Сохранить</button>
+							<button class="btn btn-secondary float-end" type="submit">Сохранить</button>
 						</div>
 					</form>
 				</div>
@@ -56,7 +69,11 @@
 </script>
 
 <style scoped lang="sass">
-	.card-body
-		border-radius: 15px
-		box-shadow: 0 2px 10px 10px hsl(0, 0%, 94%)
+	.container
+		.card-body
+			border-radius: 15px
+			box-shadow: 0 2px 10px 10px hsl(0, 0%, 95%)
+
+		button
+			width: 150px
 </style>

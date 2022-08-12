@@ -101,5 +101,5 @@
 <style scoped lang="sass">
 	.card-body
 		border-radius: 15px
-		box-shadow: 0 2px 10px 10px hsl(0, 0%, 94%)
+		box-shadow: 0 2px 10px 10px hsl(0, 0%, 95%)
 </style>

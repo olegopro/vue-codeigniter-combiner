@@ -10,6 +10,6 @@
 
 <style scoped lang="sass">
 	.container-fluid
-		background: #f9f9f9
+		//background: #f9f9f9
 		min-height: calc(100vh - 70px)
 </style>

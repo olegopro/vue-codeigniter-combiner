@@ -90,5 +90,4 @@
 		.ps
 			height: calc(100vh - 70px)
 			width: 100%
-
 </style>

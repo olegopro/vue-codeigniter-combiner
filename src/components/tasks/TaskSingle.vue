@@ -17,7 +17,7 @@
 		</div>
 
 		<div class="row">
-			<div class="col-12">
+			<div class="col-12 mb-5">
 				<div class="task">
 					<p><strong>Имя: </strong>{{ request.task_fio }}</p>
 					<p><strong>Телефон: </strong>{{ request.task_telephone }}</p>
@@ -36,8 +36,36 @@
 					<div>
 						<button class="btn btn-secondary me-3" @click="updateById">Обновить</button>
 						<button class="btn btn-danger" @click="deleteById">Удалить</button>
+
+						<router-link
+							custom
+							v-if="this.$route.name !== 'TaskLog'"
+							:to="this.$route.fullPath + '/log'"
+							v-slot="{navigate}"
+						>
+							<button class="btn btn-danger float-end" @click="navigate">
+								Показать лог
+							</button>
+						</router-link>
+
+						<router-link
+							custom
+							v-else
+							:to="'/tasks/' + this.$route.params.id"
+							v-slot="{navigate}"
+
+						>
+							<button class="btn btn-secondary float-end" @click="navigate">
+								Скрыть лог
+							</button>
+						</router-link>
+						
 					</div>
 				</div>
+			</div>
+
+			<div class="col-12">
+				<router-view></router-view>
 			</div>
 		</div>
 
@@ -63,9 +91,15 @@
 		async mounted() {
 			this.request = await this.$store.dispatch('tasks/loadById', this.$route.params.id)
 			this.statusValue = this.request?.task_status
+			console.log(this.$route)
 		},
 
 		methods: {
+
+			myRoute() {
+				console.log(this.$route.fullPath)
+			},
+
 			updateById() {
 				const data = {
 					id: this.$route.params.id,
