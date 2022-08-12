@@ -17,11 +17,12 @@
 						<th scope="row">{{ task.task_id }}</th>
 						<td>{{ task.task_fio }}</td>
 						<td>{{ task.task_telephone }}</td>
-						<td>{{ task.task_status }}</td>
-
+						<td>
+							<AppStatus :type="task.task_status" />
+						</td>
 						<td>
 							<router-link v-slot="{navigate}" custom :to="{name: 'TaskSingle', params: {id: task.task_id}}">
-								<button class="btn btn-primary" @click="navigate">Открыть</button>
+								<button class="btn btn-secondary" @click="navigate">Открыть</button>
 							</router-link>
 						</td>
 					</tr>
@@ -39,11 +40,12 @@
 <script>
 	import AppModal from '../ui/AppModal'
 	import { mapActions, mapGetters } from 'vuex'
+	import AppStatus from '../ui/AppStatus'
 
 	export default {
 		props: ['id'],
 
-		components: { AppModal },
+		components: { AppStatus, AppModal },
 
 		mounted() {
 			this.load()
@@ -65,6 +67,7 @@
 		box-shadow: 0 2px 10px 10px hsl(0, 0%, 90%)
 		border-radius: 15px
 		margin-bottom: -1px
+		vertical-align: middle
 
 		thead
 			height: 64px
@@ -85,6 +88,13 @@
 						&:last-child
 							border-bottom-right-radius: 15px
 
+				td
+					&:last-child
+						text-align: center
+
 				th
 					padding-left: 40px
+
+		.btn-secondary
+			width: 150px
 </style>

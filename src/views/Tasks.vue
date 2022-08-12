@@ -5,7 +5,7 @@
 				<h1>Задачи</h1>
 			</div>
 			<div class="col-6">
-				<button type="button" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+				<button type="button" class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
 					Создать задачу
 				</button>
 			</div>

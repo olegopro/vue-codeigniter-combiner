@@ -40,7 +40,7 @@
 	import MainLayout from './layout/MainLayout'
 	import TasksLayout from './layout/TasksLayout'
 	import DashboardLayout from './layout/DashboardLayout'
-	import TheSidebarPopup from './components/ui/TheSidebarPopup'
+	import TheSidebarPopup from './components/TheSidebarPopup'
 	import TheSidebar from './components/TheSidebar'
 	import FrontpageLayout from './layout/FrontpageLayout'
 

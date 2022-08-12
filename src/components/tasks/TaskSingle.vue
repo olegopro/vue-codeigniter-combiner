@@ -21,13 +21,16 @@
 				<div class="task">
 					<p><strong>Имя: </strong>{{ request.task_fio }}</p>
 					<p><strong>Телефон: </strong>{{ request.task_telephone }}</p>
-					<p><strong>Статус: </strong>{{ request.task_status }}</p>
+					<p>
+						<strong>Статус: </strong>
+						<AppStatus :type="request.task_status" />
+					</p>
 
 					<select class="form-select mb-3" id="status" aria-label="Default select example" v-model="statusValue">
-						<option selected>Open this select menu</option>
-						<option value="1">One</option>
-						<option value="2">Two</option>
-						<option value="3">Three</option>
+						<option value="active">Активировать</option>
+						<option value="cancelled">Отменить</option>
+						<option value="done">Завершить</option>
+						<option value="pending">Запустить</option>
 					</select>
 
 					<div>
@@ -44,9 +47,10 @@
 
 <script>
 	import { mapActions } from 'vuex'
+	import AppStatus from '../ui/AppStatus'
 
 	export default {
-
+		components: { AppStatus },
 		props: ['id'],
 
 		data() {
@@ -95,4 +99,7 @@
 			padding: 30px
 			border-radius: 15px
 			box-shadow: 0 2px 10px 10px hsl(0, 0%, 90%)
+
+		button.btn
+			width: 150px
 </style>

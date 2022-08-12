@@ -24,16 +24,17 @@
 
 					<label for="status" class="form-label">Статус</label>
 					<select class="form-select mb-3" id="status" aria-label="Default select example" v-model="status">
-						<option selected>Open this select menu</option>
-						<option value="1">One</option>
-						<option value="2">Two</option>
-						<option value="3">Three</option>
+						<option selected>Выберите статус</option>
+						<option value="active">active</option>
+						<option value="cancelled">cancelled</option>
+						<option value="done">done</option>
+						<option value="pending">pending</option>
 					</select>
 
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
-					<button type="submit" class="btn btn-primary">Создать</button>
+					<button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Закрыть</button>
+					<button type="submit" class="btn btn-success">Создать</button>
 				</div>
 			</form>
 		</div>
@@ -71,7 +72,14 @@
 </script>
 
 <style scoped lang="sass">
-	.fade
-		padding-left: 280px
+	.modal
+		&.fade
+			padding-left: 280px
+
+		.modal-dialog
+			form
+				.modal-footer
+					button
+						width: 120px
 
 </style>
