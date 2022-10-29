@@ -6,7 +6,7 @@
 				<h1>Задача #{{ id }}</h1>
 			</div>
 			<div class="col-6">
-				<router-link to="/tasks" custom v-slot="{navigate}">
+				<router-link to="/mail-register" custom v-slot="{navigate}">
 					<button type="button" class="btn btn-secondary float-end" @click="navigate">
 						Назад
 					</button>
@@ -19,10 +19,15 @@
 		<div class="row">
 			<div class="col-12 mb-5">
 				<div class="task">
-					<p><strong>Имя: </strong>{{ request.task_fio }}</p>
-					<p><strong>Телефон: </strong>{{ request.task_telephone }}</p>
+					<p><strong>Имя: </strong>{{ request.task_firstname }}</p>
+					<p><strong>Фамилия: </strong>{{ request.task_lastname }}</p>
 					<p>
-						<strong>Статус: </strong>
+						<strong>Дата рождения: </strong>{{ request.task_day }}.{{ request.task_month }}.{{ request.task_year }}
+					</p>
+					<p><strong>Телефон: </strong>{{ request.task_telephone }}</p>
+					<p><strong>Почта: </strong>{{ request.task_email }}</p>
+					<p><strong>Пароль: </strong>{{ request.task_password }}</p>
+					<p>
 						<AppStatus :type="request.task_status" />
 					</p>
 
@@ -34,26 +39,25 @@
 					</select>
 
 					<div>
-						<button class="btn btn-secondary me-3" @click="updateById">Обновить</button>
-						<button class="btn btn-danger" @click="deleteById">Удалить</button>
+						<button class="btn btn-secondary me-3" @click="updateById" :disabled="!hasChanges">
+							Обновить
+						</button>
 
-						<router-link
-							custom
-							v-if="this.$route.name !== 'TaskLog'"
-							:to="this.$route.fullPath + '/log'"
-							v-slot="{navigate}"
-						>
+						<button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+							Удалить
+						</button>
+
+						<teleport to="body">
+							<MailRegisterTaskModalDelete />
+						</teleport>
+
+						<router-link custom v-if="this.$route.name !== 'MailRegisterTaskLog'" :to="this.$route.fullPath + '/log'" v-slot="{navigate}">
 							<button class="btn btn-danger float-end" @click="navigate">
 								Показать лог
 							</button>
 						</router-link>
 
-						<router-link
-							custom
-							v-else
-							:to="{name: 'TaskSingle', params: { id: this.$route.params.id }}"
-							v-slot="{navigate}"
-						>
+						<router-link custom v-else :to="{name: 'MailRegisterSingle', params: { id: this.$route.params.id }}" v-slot="{navigate}">
 							<button class="btn btn-secondary float-end" @click="navigate">
 								Скрыть лог
 							</button>
@@ -64,7 +68,7 @@
 			</div>
 
 			<div class="col-12">
-				<router-view></router-view>
+				<RouterView />
 			</div>
 		</div>
 
@@ -75,9 +79,10 @@
 <script>
 	import { mapActions } from 'vuex'
 	import AppStatus from '../ui/AppStatus'
+	import MailRegisterTaskModalDelete from './MailRegisterTaskModalDelete'
 
 	export default {
-		components: { AppStatus },
+		components: { MailRegisterTaskModalDelete, AppStatus },
 		props: ['id'],
 
 		data() {
@@ -88,16 +93,11 @@
 		},
 
 		async mounted() {
-			this.request = await this.$store.dispatch('tasks/loadById', this.$route.params.id)
+			this.request = await this.$store.dispatch('mailRegister/loadById', this.$route.params.id)
 			this.statusValue = this.request?.task_status
-			console.log(this.$route)
 		},
 
 		methods: {
-
-			myRoute() {
-				console.log(this.$route.fullPath)
-			},
 
 			updateById() {
 				const data = {
@@ -108,17 +108,16 @@
 				this.request.task_status = this.statusValue
 			},
 
-			deleteById() {
-				this.delete(this.$route.params.id)
-				this.$router.push('/tasks')
-			},
-
-			...mapActions('tasks', ['delete', 'update'])
+			...mapActions('mailRegister', ['update'])
 		},
 
 		computed: {
 			getRequest() {
 				return this.request
+			},
+
+			hasChanges() {
+				return this.request.task_status !== this.statusValue
 			}
 		}
 	}

@@ -42,7 +42,7 @@
 
 <script>
 	import AppAlert from '../components/ui/AppAlert'
-	import { guest } from '../plugins/axios'
+	import { user } from '../plugins/axios'
 
 	export default {
 		components: { AppAlert },
@@ -70,7 +70,7 @@
 				form.append('password', this.password)
 				form.append('password_confirm', this.password_confirm)
 
-				guest.post('/register', form)
+				user.post('/register', form)
 					.then(() => {
 						this.message = 'Вы успешно зарегистрировались'
 						this.activeClass = 'success'

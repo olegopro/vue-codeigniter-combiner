@@ -38,11 +38,13 @@
 	import TheNavbar from './components/TheNavbar'
 	import AuthLayout from './layout/AuthLayout'
 	import MainLayout from './layout/MainLayout'
-	import TasksLayout from './layout/TasksLayout'
 	import DashboardLayout from './layout/DashboardLayout'
 	import TheSidebarPopup from './components/TheSidebarPopup'
 	import TheSidebar from './components/TheSidebar'
 	import FrontpageLayout from './layout/FrontpageLayout'
+	import MailRegisterLayout from './layout/MailRegisterLayout'
+	import VkontakteBotLayout from './layout/VkontakteBotLayout'
+	// import TaskModalDelete from './components/tasks/TaskModalDelete'
 
 	export default {
 		components: {
@@ -51,9 +53,10 @@
 			AuthLayout,
 			MainLayout,
 			TheNavbar,
-			TasksLayout,
+			MailRegisterLayout,
 			DashboardLayout,
-			FrontpageLayout
+			FrontpageLayout,
+			VkontakteBotLayout
 		},
 
 		computed: {

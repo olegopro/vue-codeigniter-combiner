@@ -1,6 +1,7 @@
 import { createStore } from 'vuex'
+
 import auth from './modules/auth'
-import tasks from './modules/tasks'
+import mailRegister from './modules/mailRegister'
 import user from './modules/user'
 
 export default createStore({
@@ -28,5 +29,5 @@ export default createStore({
 		}
 	},
 
-	modules: { auth, tasks, user }
+	modules: { auth, mailRegister, user }
 })

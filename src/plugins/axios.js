@@ -1,7 +1,7 @@
 import axios from 'axios'
 import store from '../store'
 
-const guest = axios.create({
+const user = axios.create({
 	baseURL: 'http://localhost:8888/user',
 	headers: {
 		'Content-Type': 'application/x-www-form-urlencoded',
@@ -9,15 +9,8 @@ const guest = axios.create({
 	}
 })
 
-const api = axios.create({
-	baseURL: 'http://localhost:8888/user',
-	headers: {
-		'Content-Type': 'application/x-www-form-urlencoded',
-		'X-Requested-With': 'XMLHttpRequest'
-	}
-})
 
-api.interceptors.response.use(
+user.interceptors.response.use(
 	function (response) {
 		return response
 	},
@@ -31,11 +24,10 @@ api.interceptors.response.use(
 )
 
 const tasks = axios.create({
-	baseURL: 'http://localhost:8888/tasks',
+	baseURL: 'http://localhost:8888/mailregister',
 	headers: {
-		// 'Content-Type': 'application/x-www-form-urlencoded',
 		'X-Requested-With': 'XMLHttpRequest'
 	}
 })
 
-export { guest, api, tasks }
+export { user, tasks }

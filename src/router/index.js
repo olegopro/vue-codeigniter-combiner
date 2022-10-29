@@ -2,27 +2,19 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Signin from '../views/Signin'
 import Signup from '../views/Signup'
 import store from '../store'
-import Tasks from '../views/Tasks'
-import TaskSingle from '../components/tasks/TaskSingle'
 import Help from '../views/Help'
 import Dashboard from '../views/Dashboard'
 import UserSettings from '../views/UserSettings'
 import SystemSettings from '../views/SystemSettings'
 import Frontpage from '../views/Frontpage'
-import * as path from 'path'
-import TaskLog from '../components/tasks/TaskLog'
+import MailRegisterSingle from '../components/MailRegister/MailRegisterSingle'
+import MailRegisterLog from '../components/MailRegister/MailRegisterLog'
+import MailRegister from '../views/MailRegister'
+import VkontakteBot from '../views/VkontakteBot'
 
 const router = createRouter({
 	history: createWebHistory(),
 	routes: [
-		// {
-		// 	path: '/',
-		// 	name: 'MainLayout',
-		// 	component: MainLayout,
-		// 	meta: {
-		// 		auth: false
-		// 	}
-		// },
 		{
 			path: '/',
 			name: 'Frontpage',
@@ -44,31 +36,41 @@ const router = createRouter({
 			}
 		},
 		{
-			path: '/tasks',
-			name: 'Tasks',
-			component: Tasks,
+			path: '/mail-register',
+			name: 'MailRegister',
+			component: MailRegister,
 			meta: {
 				auth: true,
-				layout: 'tasks',
+				layout: 'mail-register',
 				pageName: 'Панель задач'
 			}
 		},
 		{
-			path: '/tasks/:id',
-			name: 'TaskSingle',
-			component: TaskSingle,
+			path: '/mail-register/:id',
+			name: 'MailRegisterSingle',
+			component: MailRegisterSingle,
 			props: true,
 			children: [
 				{
 					path: 'log',
-					name: 'TaskLog',
-					component: TaskLog
+					name: 'MailRegisterTaskLog',
+					component: MailRegisterLog
 				}
 			],
 			meta: {
 				auth: true,
-				layout: 'tasks',
+				layout: 'mailRegister',
 				pageName: 'Редактирование задачи'
+			}
+		},
+		{
+			path: '/vkontakte-bot',
+			name: 'VkontakteBot',
+			component: VkontakteBot,
+			meta: {
+				auth: true,
+				layout: 'main',
+				pageName: 'Бот Vkontakte'
 			}
 		},
 		{

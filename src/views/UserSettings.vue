@@ -32,7 +32,7 @@
 						</div>
 
 						<div class="mt-3">
-							<button class="btn btn-secondary float-end" type="submit">Сохранить</button>
+							<button class="btn btn-secondary" type="submit">Сохранить</button>
 						</div>
 					</form>
 				</div>
@@ -53,7 +53,7 @@
 						</div>
 
 						<div class="mt-3">
-							<button class="btn btn-secondary float-end" type="submit">Сохранить</button>
+							<button class="btn btn-secondary" type="submit">Сохранить</button>
 						</div>
 					</form>
 				</div>

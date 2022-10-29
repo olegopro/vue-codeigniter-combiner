@@ -20,7 +20,9 @@ module.exports = {
 		'vue/require-explicit-emits': 'error',
 		'vue/multi-word-component-names': 'off',
 		'no-unused-vars': 'off',
-		'vue/no-unused-components': 'off'
+		'vue/no-unused-components': 'off',
+		'no-mixed-spaces-and-tabs': 'off',
+		'no-multiple-empty-lines': 'off',
 	}
 
 }

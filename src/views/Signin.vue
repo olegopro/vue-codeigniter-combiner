@@ -23,56 +23,56 @@
 </template>
 
 <script>
-	import AppAlert from '../components/ui/AppAlert'
-	import { api } from '../plugins/axios'
+import AppAlert from '../components/ui/AppAlert'
+import { user } from '../plugins/axios'
 
-	export default {
-		data() {
-			return {
-				email: '',
-				password: '',
-				message: null,
-				activeClass: null,
+export default {
+	data() {
+		return {
+			email: '',
+			password: '',
+			message: null,
+			activeClass: null,
 
-				token: null,
-				expires_in: null
+			token: null,
+			expires_in: null
+		}
+	},
+
+	methods: {
+		signin() {
+			const form = new FormData()
+			const auth = {
+				username: process.env.VUE_APP_CLIENT_ID,
+				password: process.env.VUE_APP_CLIENT_SECRET
 			}
-		},
 
-		methods: {
-			signin() {
-				const form = new FormData()
-				const auth = {
-					username: process.env.VUE_APP_CLIENT_ID,
-					password: process.env.VUE_APP_CLIENT_SECRET
-				}
+			form.append('username', this.email)
+			form.append('password', this.password)
+			form.append('grant_type', 'password')
 
-				form.append('username', this.email)
-				form.append('password', this.password)
-				form.append('grant_type', 'password')
+			user.post('/login', form, { auth })
+				.then((response) => {
+					this.message = 'Вы успешно вошли в систему'
+					this.activeClass = 'success'
 
-				api.post('/login', form, { auth })
-					.then((response) => {
-						this.message = 'Вы успешно вошли в систему'
-						this.activeClass = 'success'
+					this.$store.dispatch('user/username', { username: this.email })
 
-						this.$store.dispatch('user/username', { username: this.email })
+					this.email = ''
+					this.password = ''
 
-						this.email = ''
-						this.password = ''
+					this.token = response.data.access_token
 
-						this.token = response.data.access_token
+					this.$store.dispatch('auth/login', { token: this.token })
+				})
+				.catch(error => {
+					this.message = Object.values(error.response.data.messages)
+					this.activeClass = 'danger'
+				})
+		}
+	},
 
-						this.$store.dispatch('auth/login', { token: this.token })
-					})
-					.catch(error => {
-						this.message = Object.values(error.response.data.messages)
-						this.activeClass = 'danger'
-					})
-			}
-		},
+	components: { AppAlert }
 
-		components: { AppAlert }
-
-	}
+}
 </script>

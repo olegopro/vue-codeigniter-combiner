@@ -39,5 +39,7 @@
 </script>
 
 <style scoped lang="sass">
-
+	.badge
+		user-select: none
+		cursor: default
 </style>

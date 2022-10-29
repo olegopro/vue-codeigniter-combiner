@@ -25,6 +25,11 @@ export default {
 			commit('addRequest', data)
 		},
 
+		async createMulti({ commit }, payload) {
+			const { data } = await tasks.post('/createmulti', payload)
+			commit('addRequest', data)
+		},
+
 		async load({ commit }) {
 			const { data } = await tasks.get('/show')
 			const requests = Object.keys(data).map(id => ({ ...data[id], id }))
@@ -34,6 +39,15 @@ export default {
 		async loadById(_, id) {
 			try {
 				const { data } = await tasks.post(`/showById/${id}`)
+				return data
+			} catch (error) {
+				console.log(error)
+			}
+		},
+
+		async loadTaskLog(_, id) {
+			try {
+				const { data } = await tasks.post(`/showTaskLog/${id}`)
 				return data
 			} catch (error) {
 				console.log(error)
