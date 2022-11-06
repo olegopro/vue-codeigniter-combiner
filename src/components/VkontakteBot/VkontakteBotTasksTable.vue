@@ -1,38 +1,52 @@
 <template>
+
 	<div class="row">
 		<div class="col-12">
 			<table class="table table-striped table-hover">
 				<thead>
 				<tr>
-					<th scope="col">#</th>
-					<th scope="col">Имя аккаунта</th>
+					<th scope="col">ID</th>
+					<th scope="col">Аккаунт</th>
 					<th scope="col">Тип задания</th>
+					<th scope="col">Количество</th>
+					<th scope="col">Капчи</th>
+					<th scope="col">Дата создания</th>
 					<th scope="col">Статус</th>
 					<th scope="col"></th>
 				</tr>
 				</thead>
 				<tbody>
-				<tr>
-					<th scope="row">id</th>
-					<td>task_firstname</td>
-					<td>task_lastname</td>
-					<td>task_email</td>
-					<td>Открыть</td>
-
+				<tr v-for="(data, index) in request" :key="index">
+					<th scope="row">{{ data.task_id }}</th>
+					<td>{{ data.account_name }}</td>
+					<td>{{ data.task_type }}</td>
+					<td>{{ data.task_count }}</td>
+					<td>{{ data.captcha_count }}</td>
+					<td>{{ data.created_at }}</td>
+					<td>{{ data.task_status }}</td>
+					<td>
+						<router-link to="">
+							<button class="btn btn-secondary" @click="navigate">Открыть</button>
+						</router-link>
+					</td>
 				</tr>
 				</tbody>
 			</table>
 		</div>
 	</div>
 
-
 </template>
+
 
 <script>
 
+	export default {
+		props: ['request']
+	}
 </script>
 
 <style scoped lang="sass">
+
 	table
 		box-shadow: 0 2px 10px 10px hsl(0, 0%, 90%)
 		border-radius: 15px
@@ -60,7 +74,7 @@
 
 				td
 					&:last-child
-						//text-align: center
+						text-align: center
 
 				th
 					padding-left: 40px

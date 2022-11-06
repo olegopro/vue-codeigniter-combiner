@@ -4,7 +4,7 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<h5 class="modal-title" id="VkontakteTaskModal">
-						Создать задачу
+						Добавить аккаунт
 					</h5>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
@@ -14,43 +14,25 @@
 						<div class="row">
 							<div class="mb-3 col-12">
 
-								<label for="count" class="form-label">Количество</label>
+								<label for="count" class="form-label">Логин</label>
 								<div class="input-group mb-3">
-									<Field class="form-control" name="count" type="number" />
-
+									<Field class="form-control" name="login" type="text" />
 								</div>
-								<ErrorMessage class="d-block" name="count" />
+								<ErrorMessage class="d-block" name="login" />
 
 
-								<label for="action" class="form-label">Действие</label>
+								<label for="count" class="form-label">Пароль</label>
 								<div class="input-group mb-3">
-									<Field class="form-select" name="action" as="select">
-										<option value="like">like</option>
-										<option value="follow">follow</option>
-										<option value="unfollow">unfollow</option>
-									</Field>
+									<Field class="form-control" name="password" type="password" />
 								</div>
+								<ErrorMessage class="d-block" name="password" />
 
-
-								<label for="account" class="form-label">Аккаунт</label>
+								<label for="count" class="form-label">Прокси</label>
 								<div class="input-group mb-3">
-									<Field class="form-select" name="account" as="select">
-										<option v-for="account in request" :key="account.account_name" :value="account.account_name">
-											{{ account.account_name }}
-										</option>
-									</Field>
+									<Field class="form-control" name="proxy" type="text" />
 								</div>
-
-								<label for="status" class="form-label">Статус задачи</label>
-								<div class="input-group mb-3">
-									<Field class="form-select" name="status" as="select">
-										<option value="active">active</option>
-										<option value="cancelled">cancelled</option>
-										<option value="done">done</option>
-										<option value="done">pending</option>
-									</Field>
-								</div>
-
+								<ErrorMessage class="d-block" name="proxy" />
+								
 								<div class="modal-footer">
 									<button class="btn btn-success">Submit</button>
 								</div>
@@ -71,7 +53,11 @@
 	import { mapActions } from 'vuex'
 
 	export default {
-		components: { Form, Field, ErrorMessage },
+		components: {
+			Form,
+			Field,
+			ErrorMessage
+		},
 
 		props: ['request'],
 
@@ -79,15 +65,16 @@
 		computed: {
 			schema() {
 				return yup.object({
-					count: yup.number().min(5).required(),
-					status: yup.string().required()
+					login: yup.string().required(),
+					password: yup.string().required(),
+					proxy: yup.string().required()
 				})
 			}
 		},
 
 		methods: {
 			onSubmit(values) {
-				this.createTask(values)
+				this.create(values)
 			},
 
 			...mapActions('vkontakteBot', ['createTask'])

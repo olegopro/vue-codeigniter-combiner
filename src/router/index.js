@@ -10,7 +10,8 @@ import Frontpage from '../views/Frontpage'
 import MailRegisterSingle from '../components/MailRegister/MailRegisterSingle'
 import MailRegisterLog from '../components/MailRegister/MailRegisterLog'
 import MailRegister from '../views/MailRegister'
-import VkontakteBot from '../views/VkontakteBot'
+import VkontakteBotTasks from '../views/VkontakteBotTasks'
+import VkontakteBotAccounts from '../views/VkontakteBotAccounts'
 
 const router = createRouter({
 	history: createWebHistory(),
@@ -64,13 +65,23 @@ const router = createRouter({
 			}
 		},
 		{
-			path: '/vkontakte-bot',
-			name: 'VkontakteBot',
-			component: VkontakteBot,
+			path: '/vkontakte-bot/accounts',
+			name: 'VkontakteBotAccounts',
+			component: VkontakteBotAccounts,
 			meta: {
 				auth: true,
 				layout: 'main',
-				pageName: 'Бот Vkontakte'
+				pageName: 'Бот Vkontakte (аккаунты)'
+			}
+		},
+		{
+			path: '/vkontakte-bot/tasks',
+			name: 'VkontakteBotTasks',
+			component: VkontakteBotTasks,
+			meta: {
+				auth: true,
+				layout: 'main',
+				pageName: 'Бот Vkontakte (аккаунты)'
 			}
 		},
 		{

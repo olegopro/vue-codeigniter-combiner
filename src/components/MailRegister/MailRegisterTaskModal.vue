@@ -260,7 +260,7 @@
 				this.createMulti(form)
 			},
 
-			...mapActions('tasks', ['create', 'createMulti'])
+			...mapActions('mailRegister', ['create', 'createMulti'])
 		}
 	}
 

@@ -157,21 +157,23 @@
 
 
 			<li>
-				<router-link to="/vkontakte-bot" class="nav-link text-white">
+				<router-link to="/vkontakte-bot/accounts" class="nav-link text-white">
 					<svg class="bi pe-none me-2" width="16" height="16">
 						<use xlink:href="#vk"></use>
 					</svg>
-					Бот Vkontakte
+					Бот Vkontakte (аккаунты)
 				</router-link>
 			</li>
 
 			<li>
-				<router-link to="/dashboard" class="nav-link text-white">
-					<i class="bi bi-robot me-2"></i>
-					Бот TikTok (vtope)
+				<router-link to="/vkontakte-bot/tasks" class="nav-link text-white">
+					<svg class="bi pe-none me-2" width="16" height="16">
+						<use xlink:href="#vk"></use>
+					</svg>
+					Бот Vkontakte (задачи)
 				</router-link>
 			</li>
-
+			
 
 			<li>
 				<router-link to="/help" class="nav-link text-white">
@@ -263,7 +265,7 @@
 
 	.main-sidebar
 		position: fixed
-		width: 280px
+		width: 290px
 		height: 100vh
 
 	.bi

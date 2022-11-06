@@ -30,4 +30,11 @@ const tasks = axios.create({
 	}
 })
 
-export { user, tasks }
+const vkBot = axios.create({
+	baseURL: 'http://localhost:8888/vkontaktebot',
+	headers: {
+		'X-Requested-With': 'XMLHttpRequest'
+	}
+})
+
+export { user, tasks, vkBot }
