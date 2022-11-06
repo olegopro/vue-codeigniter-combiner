@@ -18,7 +18,7 @@
 		<VkontakteBotAccountsTable :request="getAccounts" />
 
 		<teleport to="body">
-			<VkontakteBotAccountModal :request="getAccounts" />
+			<VkontakteBotAccountModal />
 		</teleport>
 
 	</div>

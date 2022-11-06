@@ -23,7 +23,7 @@
 
 								<label for="count" class="form-label">Пароль</label>
 								<div class="input-group mb-3">
-									<Field class="form-control" name="password" type="password" />
+									<Field class="form-control" name="password" type="text" />
 								</div>
 								<ErrorMessage class="d-block" name="password" />
 
@@ -32,7 +32,7 @@
 									<Field class="form-control" name="proxy" type="text" />
 								</div>
 								<ErrorMessage class="d-block" name="proxy" />
-								
+
 								<div class="modal-footer">
 									<button class="btn btn-success">Submit</button>
 								</div>
@@ -67,17 +67,17 @@
 				return yup.object({
 					login: yup.string().required(),
 					password: yup.string().required(),
-					proxy: yup.string().required()
+					proxy: yup.string()
 				})
 			}
 		},
 
 		methods: {
 			onSubmit(values) {
-				this.create(values)
+				this.addAccount(values)
 			},
 
-			...mapActions('vkontakteBot', ['createTask'])
+			...mapActions('vkontakteBot', ['addAccount'])
 		}
 	}
 </script>

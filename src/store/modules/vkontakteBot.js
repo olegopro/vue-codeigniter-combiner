@@ -42,9 +42,9 @@ export default {
 			commit('setTasks', data)
 		},
 
-		async createTask(context, payload) {
+		async createTask({ commit }, payload) {
 			const { data } = await vkBot.post('/createTask', payload)
-			context.commit('addTask', data)
+			commit('addTask', data)
 		},
 
 		async addAccount({ commit }, payload) {
