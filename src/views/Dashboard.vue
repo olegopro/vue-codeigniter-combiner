@@ -1,6 +1,5 @@
 <template>
 	<div class="container">
-
 		<div class="row mb-5">
 			<div class="col-12">
 				<h1 class="mb-3">Новые пользователи</h1>
@@ -18,25 +17,6 @@
 				/>
 			</div>
 		</div>
-
-		<div class="row">
-			<div class="col-12">
-				<h1 class="mb-3">Новые пользователи</h1>
-				<Bar
-					:chart-options="chartOptions"
-					:chart-data="chartData"
-					:chart-id="chartId"
-					:dataset-id-key="datasetIdKey"
-					:plugins="plugins"
-					:css-classes="cssClasses"
-					:styles="myStyles"
-					:width="width"
-					:height="150"
-					class="myBar"
-				/>
-			</div>
-		</div>
-
 	</div>
 </template>
 

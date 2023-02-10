@@ -2,14 +2,6 @@
 
 	<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
 
-		<symbol id="tiktok" viewBox="0 0 32 32">
-			<path d="M16.708 0.027c1.745-0.027 3.48-0.011 5.213-0.027 0.105 2.041 0.839 4.12 2.333 5.563 1.491 1.479 3.6 2.156 5.652 2.385v5.369c-1.923-0.063-3.855-0.463-5.6-1.291-0.76-0.344-1.468-0.787-2.161-1.24-0.009 3.896 0.016 7.787-0.025 11.667-0.104 1.864-0.719 3.719-1.803 5.255-1.744 2.557-4.771 4.224-7.88 4.276-1.907 0.109-3.812-0.411-5.437-1.369-2.693-1.588-4.588-4.495-4.864-7.615-0.032-0.667-0.043-1.333-0.016-1.984 0.24-2.537 1.495-4.964 3.443-6.615 2.208-1.923 5.301-2.839 8.197-2.297 0.027 1.975-0.052 3.948-0.052 5.923-1.323-0.428-2.869-0.308-4.025 0.495-0.844 0.547-1.485 1.385-1.819 2.333-0.276 0.676-0.197 1.427-0.181 2.145 0.317 2.188 2.421 4.027 4.667 3.828 1.489-0.016 2.916-0.88 3.692-2.145 0.251-0.443 0.532-0.896 0.547-1.417 0.131-2.385 0.079-4.76 0.095-7.145 0.011-5.375-0.016-10.735 0.025-16.093z" />
-		</symbol>
-
-		<symbol id="vk" viewBox="0 0 20 20">
-			<path d="M17.802 12.298s1.617 1.597 2.017 2.336a.127.127 0 0 1 .018.035c.163.273.203.487.123.645-.135.261-.592.392-.747.403h-2.858c-.199 0-.613-.052-1.117-.4-.385-.269-.768-.712-1.139-1.145-.554-.643-1.033-1.201-1.518-1.201a.548.548 0 0 0-.18.03c-.367.116-.833.639-.833 2.032 0 .436-.344.684-.585.684H9.674c-.446 0-2.768-.156-4.827-2.327C2.324 10.732.058 5.4.036 5.353c-.141-.345.155-.533.475-.533h2.886c.387 0 .513.234.601.444.102.241.48 1.205 1.1 2.288 1.004 1.762 1.621 2.479 2.114 2.479a.527.527 0 0 0 .264-.07c.644-.354.524-2.654.494-3.128 0-.092-.001-1.027-.331-1.479-.236-.324-.638-.45-.881-.496.065-.094.203-.238.38-.323.441-.22 1.238-.252 2.029-.252h.439c.858.012 1.08.067 1.392.146.628.15.64.557.585 1.943-.016.396-.033.842-.033 1.367 0 .112-.005.237-.005.364-.019.711-.044 1.512.458 1.841a.41.41 0 0 0 .217.062c.174 0 .695 0 2.108-2.425.62-1.071 1.1-2.334 1.133-2.429.028-.053.112-.202.214-.262a.479.479 0 0 1 .236-.056h3.395c.37 0 .621.056.67.196.082.227-.016.92-1.566 3.016-.261.349-.49.651-.691.915-1.405 1.844-1.405 1.937.083 3.337z" />
-		</symbol>
-
 		<symbol id="combiner" viewBox="0 0 512 512">
 			<g transform="translate(1 1)">
 				<g>
@@ -93,8 +85,8 @@
 
 	</svg>
 
-	<aside class="main-sidebar d-flex flex-column flex-shrink-0 p-3 text-bg-dark" v-if="loggedIn">
-		<router-link :to="loggedIn ? '/' : '/login'" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+	<aside class="main-sidebar d-flex flex-column flex-shrink-0 p-3 text-bg-dark" >
+		<router-link to="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
 			<svg class="bi pe-none me-2" width="40" height="32">
 				<use xlink:href="#combiner"></use>
 			</svg>
@@ -109,13 +101,6 @@
 				<router-link to="/dashboard" class="nav-link text-white">
 					<i class="bi bi-bar-chart me-2"></i>
 					Статистика
-				</router-link>
-			</li>
-
-			<li>
-				<router-link to="/dashboard" class="nav-link text-white">
-					<i class="bi bi-envelope me-2"></i>
-					Почтовый клиент
 				</router-link>
 			</li>
 
@@ -137,43 +122,12 @@
 				</li>
 			</router-link>
 
-
 			<li>
-				<router-link to="/dashboard" class="nav-link text-white">
-					<svg class="bi pe-none me-2" width="16" height="16">
-						<use xlink:href="#tiktok"></use>
-					</svg>
-					TikTok регистратор
-				</router-link>
-			</li>
-
-
-			<li>
-				<router-link to="/dashboard" class="nav-link text-white">
+				<router-link to="/seo" class="nav-link text-white">
 					<i class="bi bi-browser-chrome me-2"></i>
 					SEO автоактивность
 				</router-link>
 			</li>
-
-
-			<li>
-				<router-link to="/vkontakte-bot/accounts" class="nav-link text-white">
-					<svg class="bi pe-none me-2" width="16" height="16">
-						<use xlink:href="#vk"></use>
-					</svg>
-					Бот Vkontakte (аккаунты)
-				</router-link>
-			</li>
-
-			<li>
-				<router-link to="/vkontakte-bot/tasks" class="nav-link text-white">
-					<svg class="bi pe-none me-2" width="16" height="16">
-						<use xlink:href="#vk"></use>
-					</svg>
-					Бот Vkontakte (задачи)
-				</router-link>
-			</li>
-			
 
 			<li>
 				<router-link to="/help" class="nav-link text-white">
@@ -182,32 +136,6 @@
 				</router-link>
 			</li>
 		</ul>
-		<hr>
-
-		<div class="dropdown">
-			<button href="#" class="d-flex btn align-items-center text-white text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false">
-				<strong>{{ username }}</strong>
-			</button>
-			<ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-				<li>
-					<router-link v-slot="{navigate}" custom to="/systemconfig">
-						<button class="dropdown-item" @click="navigate">Настройки</button>
-					</router-link>
-				</li>
-				<li>
-
-					<router-link v-slot="{navigate}" custom to="/userconfig">
-						<button class="dropdown-item" @click="navigate">Профиль</button>
-					</router-link>
-				</li>
-				<li>
-					<hr class="dropdown-divider">
-				</li>
-				<li>
-					<button class="dropdown-item" @click="logout">Выход</button>
-				</li>
-			</ul>
-		</div>
 	</aside>
 </template>
 
@@ -256,12 +184,6 @@
 
 			&:active
 				transform: scale(0.99)
-
-
-	.dropdown-menu
-		width: 100%
-		transform: translate(0px, -70px) !important
-
 
 	.main-sidebar
 		position: fixed

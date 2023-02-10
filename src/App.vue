@@ -1,6 +1,6 @@
 <template>
 
-	<main v-if="loggedIn">
+	<main >
 
 		<TheSidebar />
 
@@ -25,18 +25,10 @@
 
 	</main>
 
-	<div v-else>
-		<TheNavbar :layout="layout" />
-		<Component
-			:is="layout + '-layout'"
-			v-if="layout"
-		/>
-	</div>
 
 </template>
 <script>
 	import TheNavbar from './components/TheNavbar'
-	import AuthLayout from './layout/AuthLayout'
 	import MainLayout from './layout/MainLayout'
 	import DashboardLayout from './layout/DashboardLayout'
 	import TheSidebarPopup from './components/TheSidebarPopup'
@@ -50,7 +42,6 @@
 		components: {
 			TheSidebar,
 			TheSidebarPopup,
-			AuthLayout,
 			MainLayout,
 			TheNavbar,
 			MailRegisterLayout,
@@ -62,12 +53,7 @@
 		computed: {
 			layout() {
 				return this.$route.meta.layout
-			},
-
-			loggedIn() {
-				return this.$store.getters['auth/isAuthenticated']
 			}
-
 		},
 
 		watch: {

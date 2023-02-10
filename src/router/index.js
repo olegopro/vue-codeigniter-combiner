@@ -1,17 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Signin from '../views/Signin'
-import Signup from '../views/Signup'
 import store from '../store'
 import Help from '../views/Help'
 import Dashboard from '../views/Dashboard'
-import UserSettings from '../views/UserSettings'
-import SystemSettings from '../views/SystemSettings'
 import Frontpage from '../views/Frontpage'
 import MailRegisterSingle from '../components/MailRegister/MailRegisterSingle'
 import MailRegisterLog from '../components/MailRegister/MailRegisterLog'
 import MailRegister from '../views/MailRegister'
-import VkontakteBotTasks from '../views/VkontakteBotTasks'
-import VkontakteBotAccounts from '../views/VkontakteBotAccounts'
 
 const router = createRouter({
 	history: createWebHistory(),
@@ -65,26 +59,6 @@ const router = createRouter({
 			}
 		},
 		{
-			path: '/vkontakte-bot/accounts',
-			name: 'VkontakteBotAccounts',
-			component: VkontakteBotAccounts,
-			meta: {
-				auth: true,
-				layout: 'main',
-				pageName: 'Бот Vkontakte (аккаунты)'
-			}
-		},
-		{
-			path: '/vkontakte-bot/tasks',
-			name: 'VkontakteBotTasks',
-			component: VkontakteBotTasks,
-			meta: {
-				auth: true,
-				layout: 'main',
-				pageName: 'Бот Vkontakte (аккаунты)'
-			}
-		},
-		{
 			path: '/help',
 			name: 'Help',
 			component: Help,
@@ -92,42 +66,6 @@ const router = createRouter({
 				auth: true,
 				layout: 'main',
 				pageName: 'Помощь'
-			}
-		},
-		{
-			path: '/userconfig',
-			name: 'UserConfig',
-			component: UserSettings,
-			meta: {
-				auth: true,
-				layout: 'main',
-				pageName: 'Настройки пользователя'
-			}
-		},
-		{
-			path: '/systemconfig',
-			name: 'SystemConfig',
-			component: SystemSettings,
-			meta: {
-				auth: true,
-				layout: 'main',
-				pageName: 'Системные настройки'
-			}
-		},
-		{
-			path: '/login',
-			name: 'login',
-			component: Signin,
-			meta: {
-				layout: 'auth'
-			}
-		},
-		{
-			path: '/register',
-			name: 'register',
-			component: Signup,
-			meta: {
-				layout: 'auth'
 			}
 		}
 	],
@@ -137,15 +75,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-	const requireAuth = to.meta.auth
-
-	if (requireAuth && store.getters['auth/isAuthenticated']) {
-		next()
-	} else if (requireAuth && !store.getters['auth/isAuthenticated']) {
-		next('/login?message=auth')
-	} else {
-		next()
-	}
+	next()
 
 	const pageName = to.meta.pageName
 
