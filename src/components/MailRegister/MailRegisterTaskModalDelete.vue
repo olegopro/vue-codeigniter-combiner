@@ -30,7 +30,7 @@
 				this.$router.push('/mail-register')
 			},
 
-			...mapActions('tasks', ['delete'])
+			...mapActions('mailRegister', ['delete'])
 		}
 	}
 </script>

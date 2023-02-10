@@ -250,8 +250,6 @@
 			},
 
 			onSubmitMulti() {
-				console.log(this.proxy)
-
 				const form = new FormData()
 				form.append('count', this.count)
 				form.append('proxyList', this.proxyList)

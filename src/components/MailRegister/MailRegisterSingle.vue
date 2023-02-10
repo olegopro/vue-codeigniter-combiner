@@ -78,7 +78,7 @@
 
 <script>
 	import { mapActions } from 'vuex'
-	import AppStatus from '../ui/AppStatus'
+	import AppStatus from '../Status.vue'
 	import MailRegisterTaskModalDelete from './MailRegisterTaskModalDelete'
 
 	export default {

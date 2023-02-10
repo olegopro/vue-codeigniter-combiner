@@ -11,7 +11,7 @@
 </template>
 
 <script>
-	import QuestionItem from '../components/question/QuestionItem'
+	import QuestionItem from '../components/Questions/QuestionItem'
 
 	export default {
 		components: { QuestionItem },

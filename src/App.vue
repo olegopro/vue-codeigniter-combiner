@@ -28,15 +28,13 @@
 
 </template>
 <script>
-	import TheNavbar from './components/TheNavbar'
-	import MainLayout from './layout/MainLayout'
-	import DashboardLayout from './layout/DashboardLayout'
-	import TheSidebarPopup from './components/TheSidebarPopup'
-	import TheSidebar from './components/TheSidebar'
-	import FrontpageLayout from './layout/FrontpageLayout'
-	import MailRegisterLayout from './layout/MailRegisterLayout'
-	import VkontakteBotLayout from './layout/VkontakteBotLayout'
-	// import TaskModalDelete from './components/tasks/TaskModalDelete'
+	import TheNavbar from './components/Navbar.vue'
+	import MainLayout from './layouts/MainLayout'
+	import DashboardLayout from './layouts/DashboardLayout'
+	import TheSidebarPopup from './components/SidebarPopup.vue'
+	import TheSidebar from './components/Sidebar.vue'
+	import FrontpageLayout from './layouts/FrontpageLayout'
+	import MailRegisterLayout from './layouts/MailRegisterLayout'
 
 	export default {
 		components: {
@@ -46,8 +44,7 @@
 			TheNavbar,
 			MailRegisterLayout,
 			DashboardLayout,
-			FrontpageLayout,
-			VkontakteBotLayout
+			FrontpageLayout
 		},
 
 		computed: {

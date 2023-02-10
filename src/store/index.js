@@ -1,10 +1,5 @@
 import { createStore } from 'vuex'
-
-import auth from './modules/auth'
 import mailRegister from './modules/mailRegister'
-import vkontakteBot from './modules/vkontakteBot'
-import user from './modules/user'
-
 
 export default createStore({
 	state() {
@@ -31,5 +26,5 @@ export default createStore({
 		}
 	},
 
-	modules: { auth, mailRegister, vkontakteBot, user }
+	modules: { mailRegister }
 })

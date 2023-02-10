@@ -1,4 +1,5 @@
 import { tasks } from '../../plugins/axios'
+import axios from 'axios'
 
 export default {
 	namespaced: true,
@@ -26,19 +27,19 @@ export default {
 		},
 
 		async createMulti({ commit }, payload) {
-			const { data } = await tasks.post('/createmulti', payload)
+			const { data } = await axios.post('http://localhost:8888/mail-register/create-multi-task', payload)
 			commit('addRequest', data)
 		},
 
 		async load({ commit }) {
-			const { data } = await tasks.get('/show')
+			const { data } = await axios.get('http://localhost:8888/mail-register/all-tasks')
 			const requests = Object.keys(data).map(id => ({ ...data[id], id }))
 			commit('setRequests', requests)
 		},
 
 		async loadById(_, id) {
 			try {
-				const { data } = await tasks.post(`/showById/${id}`)
+				const { data } = await axios.get(`http://localhost:8888/mail-register/show-by-id/${id}`)
 				return data
 			} catch (error) {
 				console.log(error)
@@ -56,7 +57,11 @@ export default {
 
 		async update(_, request) {
 			try {
-				await tasks.post(`/update/${request.id}`, request)
+				await axios.post(`http://localhost:8888/mail-register/update-task/${request.id}`, request, {
+					headers: {
+						'Content-Type': 'multipart/form-data'
+					}
+				})
 			} catch (error) {
 				console.log(error)
 			}
@@ -64,7 +69,12 @@ export default {
 
 		async delete(_, id) {
 			try {
-				const { data } = await tasks.post(`/delete/${id}`)
+				const { data } = await axios.post(`http://localhost:8888/mail-register/delete-task/${id}`, {}, {
+					headers: {
+						'Content-Type': 'multipart/form-data'
+					}
+				})
+
 				return data
 			} catch (error) {
 				console.log(error)
