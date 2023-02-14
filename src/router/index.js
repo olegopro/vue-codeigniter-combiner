@@ -3,8 +3,8 @@ import store from '../store'
 import Help from '../views/Help'
 import Dashboard from '../views/Dashboard'
 import Frontpage from '../views/Frontpage'
-import MailRegisterSingle from '../components/MailRegister/MailRegisterSingle'
-import MailRegisterLog from '../components/MailRegister/MailRegisterLog'
+import MailRegisterSingle from '../components/MailRegister/Single.vue'
+import MailRegisterLog from '../components/MailRegister/Log.vue'
 import MailRegister from '../views/MailRegister'
 
 const router = createRouter({

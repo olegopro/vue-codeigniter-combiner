@@ -37,7 +37,7 @@
 </template>
 
 <script>
-	import AppStatus from '../Status.vue'
+	import AppStatus from '../Global/Status.vue'
 
 
 	export default {

@@ -27,9 +27,9 @@
 
 <script>
 	import { mapActions, mapGetters } from 'vuex'
-	import MailRegisterTable from '../components/MailRegister/MailRegisterTable'
-	import MailRegisterTasksFilter from '../components/MailRegister/MailRegisterTasksFilter'
-	import MailRegisterTaskModal from '../components/MailRegister/MailRegisterTaskModal'
+	import MailRegisterTable from '../components/MailRegister/Table.vue'
+	import MailRegisterTasksFilter from '../components/MailRegister/TasksFilter.vue'
+	import MailRegisterTaskModal from '../components/MailRegister/TaskModal.vue'
 
 	export default {
 		components: { MailRegisterTasksFilter, MailRegisterTable, MailRegisterTaskModal },

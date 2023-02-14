@@ -28,11 +28,11 @@
 
 </template>
 <script>
-	import TheNavbar from './components/Navbar.vue'
+	import TheNavbar from './components/Global/Navbar.vue'
 	import MainLayout from './layouts/MainLayout'
 	import DashboardLayout from './layouts/DashboardLayout'
-	import TheSidebarPopup from './components/SidebarPopup.vue'
-	import TheSidebar from './components/Sidebar.vue'
+	import TheSidebarPopup from './components/Global/SidebarPopup.vue'
+	import TheSidebar from './components/Global/Sidebar.vue'
 	import FrontpageLayout from './layouts/FrontpageLayout'
 	import MailRegisterLayout from './layouts/MailRegisterLayout'
 
