@@ -1,5 +1,6 @@
 import { createStore } from 'vuex'
 import mailRegister from './modules/mailRegister'
+import webWalker from './modules/webWalker'
 
 export default createStore({
 	state() {
@@ -26,5 +27,5 @@ export default createStore({
 		}
 	},
 
-	modules: { mailRegister }
+	modules: { mailRegister, webWalker }
 })

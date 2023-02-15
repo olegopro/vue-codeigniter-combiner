@@ -1,9 +1,9 @@
 <template>
-	<div class="modal fade" id="MailRegisterTaskModal" tabindex="-1" aria-labelledby="MailRegisterTaskModal" style="display: none" aria-hidden="true">
+	<div class="modal fade" id="TaskModal" tabindex="-1" aria-labelledby="TaskModal" style="display: none" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="MailRegisterTaskModal">
+					<h5 class="modal-title" id="TaskModal">
 						Создать задачу
 					</h5>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>

@@ -10,7 +10,6 @@
 					:dataset-id-key="datasetIdKey"
 					:plugins="plugins"
 					:css-classes="cssClasses"
-					:styles="myStyles"
 					:width="width"
 					:height="150"
 					class="myBar"
