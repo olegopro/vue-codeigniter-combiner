@@ -6,20 +6,20 @@
 			</div>
 
 			<div class="col-6">
-				<MailRegisterTasksFilter v-model="filter" />
+				<TasksFilter v-model="filter" />
 			</div>
 
 			<div class="col-3">
-				<button type="button" class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#MailRegisterTaskModal">
+				<button type="button" class="btn btn-success float-end" data-bs-toggle="modal" data-bs-target="#TaskModal">
 					Создать задачу
 				</button>
 			</div>
 		</div>
 
-		<MailRegisterTable :request="requests" />
+		<Table :request="requests" />
 
 		<teleport to="body">
-			<MailRegisterTaskModal />
+			<TaskModal />
 		</teleport>
 
 	</div>
@@ -27,12 +27,12 @@
 
 <script>
 	import { mapActions, mapGetters } from 'vuex'
-	import MailRegisterTable from '../components/MailRegister/Table.vue'
-	import MailRegisterTasksFilter from '../components/MailRegister/TasksFilter.vue'
-	import MailRegisterTaskModal from '../components/MailRegister/TaskModal.vue'
+	import Table from '../components/MailRegister/Table.vue'
+	import TasksFilter from '../components/MailRegister/TasksFilter.vue'
+	import TaskModal from '../components/MailRegister/TaskModal.vue'
 
 	export default {
-		components: { MailRegisterTasksFilter, MailRegisterTable, MailRegisterTaskModal },
+		components: { TasksFilter, Table, TaskModal },
 
 		data() {
 			return {
