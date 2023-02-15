@@ -6,6 +6,7 @@ import Frontpage from '../views/Frontpage'
 import MailRegisterSingle from '../components/MailRegister/Single.vue'
 import MailRegisterLog from '../components/MailRegister/Log.vue'
 import MailRegister from '../views/MailRegister'
+import WebWalker from '../views/WebWalker.vue'
 
 const router = createRouter({
 	history: createWebHistory(),
@@ -16,7 +17,6 @@ const router = createRouter({
 			component: Frontpage,
 
 			meta: {
-				auth: false,
 				layout: 'frontpage'
 			}
 		},
@@ -25,17 +25,16 @@ const router = createRouter({
 			name: 'Dashboard',
 			component: Dashboard,
 			meta: {
-				auth: true,
 				layout: 'dashboard',
 				pageName: 'Статистика'
 			}
 		},
+
 		{
 			path: '/mail-register',
 			name: 'MailRegister',
 			component: MailRegister,
 			meta: {
-				auth: true,
 				layout: 'mail-register',
 				pageName: 'Панель задач'
 			}
@@ -53,9 +52,17 @@ const router = createRouter({
 				}
 			],
 			meta: {
-				auth: true,
 				layout: 'mailRegister',
 				pageName: 'Редактирование задачи'
+			}
+		},
+		{
+			path: '/web-walker',
+			name: 'WebWalker',
+			component: WebWalker,
+			meta: {
+				layout: 'web-walker',
+				pageName: 'Веб-бродяга'
 			}
 		},
 		{
@@ -63,7 +70,6 @@ const router = createRouter({
 			name: 'Help',
 			component: Help,
 			meta: {
-				auth: true,
 				layout: 'main',
 				pageName: 'Помощь'
 			}

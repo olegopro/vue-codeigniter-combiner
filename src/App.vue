@@ -1,6 +1,6 @@
 <template>
 
-	<main >
+	<main>
 
 		<TheSidebar />
 
@@ -25,7 +25,6 @@
 
 	</main>
 
-
 </template>
 <script>
 	import TheNavbar from './components/Global/Navbar.vue'
@@ -35,16 +34,18 @@
 	import TheSidebar from './components/Global/Sidebar.vue'
 	import FrontpageLayout from './layouts/FrontpageLayout'
 	import MailRegisterLayout from './layouts/MailRegisterLayout'
+	import WebWalkerLayout from './layouts/WebWalkerLayout.vue'
 
 	export default {
 		components: {
-			TheSidebar,
-			TheSidebarPopup,
+			DashboardLayout,
+			FrontpageLayout,
+			MailRegisterLayout,
 			MainLayout,
 			TheNavbar,
-			MailRegisterLayout,
-			DashboardLayout,
-			FrontpageLayout
+			TheSidebar,
+			TheSidebarPopup,
+			WebWalkerLayout
 		},
 
 		computed: {

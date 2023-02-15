@@ -122,12 +122,12 @@
 				</li>
 			</router-link>
 
-			<!--<li>-->
-			<!--	<router-link to="/seo" class="nav-link text-white">-->
-			<!--		<i class="bi bi-browser-chrome me-2"></i>-->
-			<!--		SEO автоактивность-->
-			<!--	</router-link>-->
-			<!--</li>-->
+			<li>
+				<router-link to="/web-walker" class="nav-link text-white">
+					<i class="bi bi-browser-chrome me-2"></i>
+					Веб-бродяга
+				</router-link>
+			</li>
 
 			<li>
 				<router-link to="/help" class="nav-link text-white">
