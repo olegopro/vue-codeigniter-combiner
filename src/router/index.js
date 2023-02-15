@@ -7,6 +7,8 @@ import MailRegisterSingle from '../components/MailRegister/Single.vue'
 import MailRegisterLog from '../components/MailRegister/Log.vue'
 import MailRegister from '../views/MailRegister'
 import WebWalker from '../views/WebWalker.vue'
+import WebWalkerSingle from '../components/WebWalker/Single.vue'
+import WebWalkerTaskLog from '../components/WebWalker/Log.vue'
 
 const router = createRouter({
 	history: createWebHistory(),
@@ -63,6 +65,23 @@ const router = createRouter({
 			meta: {
 				layout: 'web-walker',
 				pageName: 'Веб-бродяга'
+			}
+		},
+		{
+			path: '/web-walker/:id',
+			name: 'WebWalkerSingle',
+			component: WebWalkerSingle,
+			props: true,
+			children: [
+				{
+					path: 'log',
+					name: 'WebWalkerTaskLog',
+					component: WebWalkerTaskLog
+				}
+			],
+			meta: {
+				layout: 'webWalker',
+				pageName: 'Редактирование задачи'
 			}
 		},
 		{

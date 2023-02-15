@@ -27,6 +27,15 @@ export default {
 		async getAllTasks({ commit }) {
 			const { data } = await axios.post('http://localhost:8888/web-walker/tasks')
 			commit('setRequests', data)
+		},
+
+		async loadById(_, id) {
+			try {
+				const { data } = await axios.get(`http://localhost:8888/web-walker/show-by-id/${id}`)
+				return data
+			} catch (error) {
+				console.log(error)
+			}
 		}
 	},
 

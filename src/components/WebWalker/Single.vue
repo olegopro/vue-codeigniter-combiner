@@ -6,7 +6,7 @@
 				<h1>Задача #{{ id }}</h1>
 			</div>
 			<div class="col-6">
-				<router-link to="/mail-register" custom v-slot="{navigate}">
+				<router-link to="/web-walker" custom v-slot="{navigate}">
 					<button type="button" class="btn btn-secondary float-end" @click="navigate">
 						Назад
 					</button>
@@ -19,16 +19,11 @@
 		<div class="row">
 			<div class="col-12 mb-5">
 				<div class="task">
-					<p><strong>Имя: </strong>{{ request.task_firstname }}</p>
-					<p><strong>Фамилия: </strong>{{ request.task_lastname }}</p>
+					<p><strong>Вход: </strong>{{ request.entry_point }}</p>
+					<p><strong>Переходы: </strong>{{ request.internal_transitions }}</p>
+
 					<p>
-						<strong>Дата рождения: </strong>{{ request.task_day }}.{{ request.task_month }}.{{ request.task_year }}
-					</p>
-					<p><strong>Телефон: </strong>{{ request.task_telephone }}</p>
-					<p><strong>Почта: </strong>{{ request.task_email }}</p>
-					<p><strong>Пароль: </strong>{{ request.task_password }}</p>
-					<p>
-						<AppStatus :type="request.task_status" />
+						<Status :type="request.task_status" />
 					</p>
 
 					<select class="form-select mb-3" id="status" aria-label="Default select example" v-model="statusValue">
@@ -47,7 +42,7 @@
 							Удалить
 						</button>
 
-						<teleport to="body">
+						<!--<teleport to="body">
 							<MailRegisterTaskModalDelete />
 						</teleport>
 
@@ -61,7 +56,7 @@
 							<button class="btn btn-secondary float-end" @click="navigate">
 								Скрыть лог
 							</button>
-						</router-link>
+						</router-link>-->
 
 					</div>
 				</div>
@@ -73,16 +68,13 @@
 		</div>
 
 	</div>
-
 </template>
 
 <script>
-	import { mapActions } from 'vuex'
-	import AppStatus from '../Global/Status.vue'
-	import MailRegisterTaskModalDelete from './TaskModalDelete.vue'
+	import Status from '../Global/Status.vue'
 
 	export default {
-		components: { MailRegisterTaskModalDelete, AppStatus },
+		components: { Status },
 		props: ['id'],
 
 		data() {
@@ -93,31 +85,8 @@
 		},
 
 		async mounted() {
-			this.request = await this.$store.dispatch('mailRegister/loadById', this.$route.params.id)
-			this.statusValue = this.request?.task_status
-		},
-
-		methods: {
-			updateById() {
-				const data = {
-					id: this.$route.params.id,
-					status: this.statusValue
-				}
-				this.update(data)
-				this.request.task_status = this.statusValue
-			},
-
-			...mapActions('mailRegister', ['update'])
-		},
-
-		computed: {
-			getRequest() {
-				return this.request
-			},
-
-			hasChanges() {
-				return this.request.task_status !== this.statusValue
-			}
+			this.request = await this.$store.dispatch('webWalker/loadById', this.$route.params.id)
+			this.statusValue = this.request?.status
 		}
 	}
 </script>

@@ -17,10 +17,10 @@
 					<td>{{ task.entry_point }}</td>
 					<td>{{ task.internal_transitions }}</td>
 					<td>
-						<AppStatus :type="task.status" />
+						<Status :type="task.status" />
 					</td>
 					<td>
-						<router-link v-slot="{navigate}" custom to="/">
+						<router-link v-slot="{navigate}" custom :to="{name: 'WebWalkerSingle', params: {id: task.id}}">
 							<button class="btn btn-secondary" @click="navigate">Открыть</button>
 						</router-link>
 					</td>
@@ -33,11 +33,11 @@
 </template>
 
 <script>
-	import AppStatus from '../Global/Status.vue'
+	import Status from '../Global/Status.vue'
 
 
 	export default {
-		components: { AppStatus },
+		components: { Status },
 		props: ['request']
 	}
 </script>

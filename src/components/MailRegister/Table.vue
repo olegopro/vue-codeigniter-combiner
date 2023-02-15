@@ -39,7 +39,6 @@
 <script>
 	import AppStatus from '../Global/Status.vue'
 
-
 	export default {
 		components: { AppStatus },
 		props: ['request']
