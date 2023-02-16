@@ -36,6 +36,17 @@ export default {
 			} catch (error) {
 				console.log(error)
 			}
+		},
+		async update(_, request) {
+			try {
+				await axios.post(`http://localhost:8888/web-walker/update-task/${request.id}`, request, {
+					headers: {
+						'Content-Type': 'multipart/form-data'
+					}
+				})
+			} catch (error) {
+				console.log(error)
+			}
 		}
 	},
 

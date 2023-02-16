@@ -11,9 +11,7 @@
 						Назад
 					</button>
 				</router-link>
-
 			</div>
-
 		</div>
 
 		<div class="row">
@@ -23,7 +21,7 @@
 					<p><strong>Переходы: </strong>{{ request.internal_transitions }}</p>
 
 					<p>
-						<Status :type="request.task_status" />
+						<Status :type="request.status" />
 					</p>
 
 					<select class="form-select mb-3" id="status" aria-label="Default select example" v-model="statusValue">
@@ -72,6 +70,7 @@
 
 <script>
 	import Status from '../Global/Status.vue'
+	import { mapActions } from 'vuex'
 
 	export default {
 		components: { Status },
@@ -84,9 +83,28 @@
 			}
 		},
 
+		computed: {
+			hasChanges() {
+				return this.request.status !== this.statusValue
+			}
+		},
+
 		async mounted() {
 			this.request = await this.$store.dispatch('webWalker/loadById', this.$route.params.id)
 			this.statusValue = this.request?.status
+		},
+
+		methods: {
+			updateById() {
+				const data = {
+					id: this.$route.params.id,
+					status: this.statusValue
+				}
+				this.update(data)
+				this.request.status = this.statusValue
+			},
+
+			...mapActions('webWalker', ['update'])
 		}
 	}
 </script>
