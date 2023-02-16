@@ -28,7 +28,7 @@
 					<p><strong>Почта: </strong>{{ request.task_email }}</p>
 					<p><strong>Пароль: </strong>{{ request.task_password }}</p>
 					<p>
-						<AppStatus :type="request.task_status" />
+						<Status :type="request.task_status" />
 					</p>
 
 					<select class="form-select mb-3" id="status" aria-label="Default select example" v-model="statusValue">
@@ -78,11 +78,11 @@
 
 <script>
 	import { mapActions } from 'vuex'
-	import AppStatus from '../Global/Status.vue'
+	import Status from '../Global/Status.vue'
 	import MailRegisterTaskModalDelete from './TaskModalDelete.vue'
 
 	export default {
-		components: { MailRegisterTaskModalDelete, AppStatus },
+		components: { MailRegisterTaskModalDelete, Status },
 		props: ['id'],
 
 		data() {

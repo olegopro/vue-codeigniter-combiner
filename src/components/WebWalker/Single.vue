@@ -36,7 +36,7 @@
 							Обновить
 						</button>
 
-						<button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+						<button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#taskDeleteModal">
 							Удалить
 						</button>
 
@@ -65,15 +65,20 @@
 			</div>
 		</div>
 
+		<teleport to="body">
+			<TaskDelete />
+		</teleport>
+
 	</div>
 </template>
 
 <script>
 	import Status from '../Global/Status.vue'
 	import { mapActions } from 'vuex'
+	import TaskDelete from './Modals/TaskDelete.vue'
 
 	export default {
-		components: { Status },
+		components: { TaskDelete, Status },
 		props: ['id'],
 
 		data() {

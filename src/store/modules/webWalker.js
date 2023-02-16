@@ -37,6 +37,7 @@ export default {
 				console.log(error)
 			}
 		},
+
 		async update(_, request) {
 			try {
 				await axios.post(`http://localhost:8888/web-walker/update-task/${request.id}`, request, {
@@ -44,6 +45,20 @@ export default {
 						'Content-Type': 'multipart/form-data'
 					}
 				})
+			} catch (error) {
+				console.log(error)
+			}
+		},
+
+		async delete(_, id) {
+			try {
+				const { data } = await axios.post(`http://localhost:8888/web-walker/delete-task/${id}`, {}, {
+					headers: {
+						'Content-Type': 'multipart/form-data'
+					}
+				})
+
+				return data
 			} catch (error) {
 				console.log(error)
 			}
